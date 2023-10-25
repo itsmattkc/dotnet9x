@@ -1,0 +1,140 @@
+<browsers>
+    <browser id="Netscape3" parentID="Mozilla">
+        <identification>
+            <userAgent match="^Mozilla/3" />
+            <userAgent nonMatch="Opera" />
+            <userAgent nonMatch="AvantGo" />
+            <userAgent nonMatch="MSIE" />
+        </identification>
+
+        <capabilities>
+            <capability name="browser"             value="Netscape" />
+            <capability name="cookies"             value="true" />
+            <capability name="css1"                value="true" />
+            <capability name="ecmascriptversion"   value="1.1" />
+            <capability name="frames"              value="true" />
+            <capability name="isColor"             value="true" />
+            <capability name="javaapplets"         value="true" />
+            <capability name="javascript"          value="true" />
+            <capability name="screenBitDepth"      value="8" />
+            <capability name="supportsCss"         value="false" />
+            <capability name="supportsFileUpload"  value="true" />
+            <capability name="supportsMultilineTextBoxDisplay" value="true" />
+            <capability name="tables"              value="true" />
+            <capability name="type"                value="Netscape3" />
+        </capabilities>
+
+        <controlAdapters>
+        <adapter controlType="System.Web.UI.WebControls.Menu"
+                     adapterType="System.Web.UI.WebControls.Adapters.MenuAdapter" />
+        </controlAdapters>
+    </browser>
+
+    <browser id="Netscape4" parentID="Mozilla">
+        <identification>
+            <userAgent match="^Mozilla/4" />
+            <userAgent nonMatch="Opera" />
+            <userAgent nonMatch="MSIE" />
+        </identification>
+
+        <capabilities>
+            <capability name="browser"             value="Netscape" />
+            <capability name="cookies"             value="true" />
+            <capability name="css1"                value="true" />
+            <capability name="ecmascriptversion"   value="1.3" />
+            <capability name="frames"              value="true" />
+            <capability name="isColor"             value="true" />
+            <capability name="javaapplets"         value="true" />
+            <capability name="javascript"          value="true" />
+            <capability name="screenBitDepth"      value="8" />
+            <capability name="supportsCss"         value="false" />
+            <capability name="supportsFileUpload"  value="true" />
+            <capability name="supportsMultilineTextBoxDisplay" value="true" />
+            <capability name="tables"              value="true" />
+            <capability name="type"                value="Netscape4" />
+        </capabilities>
+
+        <controlAdapters>
+        <adapter controlType="System.Web.UI.WebControls.Menu"
+                     adapterType="System.Web.UI.WebControls.Adapters.MenuAdapter" />
+        </controlAdapters>
+    </browser>
+
+    <browser id="Netscape5" parentID="Gecko">
+        <identification>
+            <userAgent match="^Mozilla/5\.0 \([^)]*\) (Gecko/[-\d]+ )?Netscape\d?/(?'version'(?'major'\d+)(?'minor'\.\d+)(?'letters'\w*))" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="browser"                 value="Netscape" />
+            <capability name="cookies"                 value="true" />
+            <capability name="css1"                    value="true" />
+            <capability name="css2"                    value="true" />
+            <capability name="ecmascriptversion"       value="1.5" />
+            <capability name="frames"                  value="true" />
+            <capability name="isColor"                 value="true" />
+            <capability name="javaapplets"             value="true" />
+            <capability name="javascript"              value="true" />
+            <capability name="letters"                 value="${letters}" />
+            <capability name="majorversion"            value="${major}" />
+            <capability name="maximumRenderedPageSize" value="300000" />
+            <capability name="minorversion"            value="${minor}" />
+            <capability name="preferredImageMime"      value="image/gif" />
+            <capability name="screenBitDepth"          value="8" />
+            <capability name="supportsDivNoWrap"       value="false" />
+            <capability name="supportsMultilineTextBoxDisplay" value="true" />
+            <capability name="supportsVCard"           value="true" />
+            <capability name="tables"                  value="true" />
+            <capability name="type"                    value="Netscape${major}" />
+            <capability name="version"                 value="${version}" />
+            <capability name="w3cdomversion"           value="1.0" />
+            <capability name="xml"                     value="true" />
+        </capabilities>
+    </browser>
+
+    <browser id="Netscape6to9" parentID="Netscape5">
+        <identification>
+            <capability name="version" match="[6-9]\." />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="tagwriter"           value="System.Web.UI.HtmlTextWriter" />
+            <capability name="supportsDivNoWrap"   value="false" />
+            <capability name="supportsXmlHttp"     value="true" />
+            <capability name="supportsCallback"    value="true" />
+            <capability name="supportsMaintainScrollPositionOnPostback" value="true" />
+        </capabilities>
+    </browser>
+
+    <browser id="Netscape6to9Beta" parentID="Netscape6to9">
+        <identification>
+            <capability name="letters" match="^b" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="beta"    value="true" />
+        </capabilities>
+    </browser>
+
+    <browser id="NetscapeBeta" parentID="Netscape5">
+        <identification>
+            <capability name="letters" match="^b" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="beta"    value="true" />
+        </capabilities>
+    </browser>
+</browsers>

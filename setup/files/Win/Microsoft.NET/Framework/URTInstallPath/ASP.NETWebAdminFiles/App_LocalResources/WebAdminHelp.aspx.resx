@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Title00" type="System.String">
+    <value>Web Site Administration Tool Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolOverview01" type="System.String">
+    <value>Web Site Administration Tool Overview</value>
+  </data>
+  <data name="WebSiteAdministrationToolOverview02" type="System.String">
+    <value></value>
+  </data>
+  <data name="Introduction01" type="System.String">
+    <value>Introduction</value>
+  </data>
+  <data name="Introduction02" type="System.String">
+    <value>The Web Site Administration Tool lets you view and manage the Web site configuration through a simple Web interface. </value>
+  </data>
+  <data name="TabsandAdditionalInformation01" type="System.String">
+    <value>Tabs and Additional Information</value>
+  </data>
+  <data name="TabsandAdditionalInformation02" type="System.String">
+    <value>The following links provide more information about how to work with the Web Site Administration Tool:</value>
+  </data>
+  <data name="TabsandAdditionalInformation03" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="TabsandAdditionalInformation04" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="TabsandAdditionalInformation05" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="TabsandAdditionalInformation06" type="System.String">
+    <value>Web Site Administration Tool Internals</value>
+  </data>
+  <data name="WebSiteConfiguration01" type="System.String">
+    <value>Web Site Configuration</value>
+  </data>
+  <data name="WebSiteConfiguration02" type="System.String">
+    <value>Web site configuration settings are stored in an XML file named Web.config, which is located in the root folder of the Web site. The Web Site Administration Tool lets you change your site configuration without having to manually edit the Web.config file. The first time that you use the Web Site Administration Tool to administer a specific Web site, if no Web.config file exists, the Web Site Administration Tool creates one. By default, the Web Site Administration Tool also creates a database in the App_Data folder of the Web site to store application services data, such as membership and roles information. For most settings, changes that are made in the Web Site Administration Tool take effect immediately and are reflected in the Web.config file.</value>
+  </data>
+  <data name="InheritedSettings01" type="System.String">
+    <value>Inherited Settings</value>
+  </data>
+  <data name="InheritedSettings02" type="System.String">
+    <value>Default settings for a Web site are automatically inherited from any configuration files that exist for the computer or for the Web server as a whole. For example, the Web server might have default settings that apply to all sites on that server. Using the Web Site Administration Tool, you can create and modify settings for your specific Web site that are not inherited, and you can override the inherited settings as allowed by the site-wide settings. If the setting has been inherited and cannot be overridden, it appears dimmed, to indicate that it is disabled, in the Web Site Administration Tool.</value>
+  </data>
+  <data name="Requirements01" type="System.String">
+    <value>Requirements</value>
+  </data>
+  <data name="Requirements02" type="System.String">
+    <value>The Web Site Administration Tool is included with the Microsoft Visual Web Developer Web development tool. In order to use the Web Site Administration Tool to administer a Web site, the user credentials for the user account under which you are running Visual Web Developer must have Read and Write permissions to the Web.config file and the App_Data folder of the application being administered. If you cannot manage the configuration for the Web site using the Web Site Administration Tool, contact the system administrator.</value>
+  </data>
+  <data name="Features01" type="System.String">
+    <value>Features</value>
+  </data>
+  <data name="Features02" type="System.String">
+    <value>The Web Site Administration Tool features a tabbed interface that groups related configuration settings within each tab. The tabs and the configuration settings that the tabs manage are described in the following sections.</value>
+  </data>
+  <data name="SecurityTab01" type="System.String">
+    <value>Security Tab</value>
+  </data>
+  <data name="SecurityTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Security&lt;/span&gt; tab to manage access rules to help secure specific resources within the Web site and to manage user accounts and roles. </value>
+  </data>
+  <data name="SecurityTab03" type="System.String">
+    <value>You can specify how the Web site is used-either from the Internet (publicly) or from an intranet (on a local area network). This in turn indicates the type of authentication mode that the Web site will use. Internet Web sites use the ASP.NET membership system, where you define individual user accounts. ASP.NET uses a security system to restrict access to specific user accounts or the roles to which the user accounts belong. Intranet Web sites use Windows authentication, where users are identified by their Windows logon information. </value>
+  </data>
+  <data name="ApplicationTab01" type="System.String">
+    <value>Application Tab</value>
+  </data>
+  <data name="ApplicationTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Application&lt;/span&gt; tab to manage a variety of settings related to the Web site, including the following:</value>
+  </data>
+  <data name="ApplicationTab03" type="System.String">
+    <value>Application settings, which are name/value pairs that you want to store centrally and access in code from anywhere in the Web site.</value>
+  </data>
+  <data name="ApplicationTab04" type="System.String">
+    <value>SMTP settings, which determine how your site sends e-mail.</value>
+  </data>
+  <data name="ApplicationTab05" type="System.String">
+    <value>Debug and trace settings.</value>
+  </data>
+  <data name="ApplicationTab06" type="System.String">
+    <value>Offline and online settings, which take the Web site offline (shut it down) to perform maintenance or to bring a new Microsoft SQL Server Standard edition database online.</value>
+  </data>
+  <data name="ProviderTab01" type="System.String">
+    <value>Provider Tab</value>
+  </data>
+  <data name="ProviderTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Provider&lt;/span&gt; tab to test or assign providers for membership and role management for the Web site. Database providers are classes that are called to store application data for a particular feature. By default, the Web Site Administration Tool configures and uses a local SQL Server Express database in the App_Data folder for the Web site. Instead, you can choose to use a different provider, such a remote SQL Server database, to store membership and role management.</value>
+  </data>
+  <data name="HowtoUsetheWebSiteAdministrationTool01" type="System.String">
+    <value>How to Use the Web Site Administration Tool</value>
+  </data>
+  <data name="HowtoUsetheWebSiteAdministrationTool02" type="System.String">
+    <value>Using the Web Site Administration Tool is similar to using other forms-based Web sites. The general procedure is to open the Web Site Administration Tool, select the appropriate tab, and then adjust the settings that are available on that tab. Most changes take effect immediately.</value>
+  </data>
+  <data name="HowtoAccesstheWebSiteAdministrationTool01" type="System.String">
+    <value>How to Access the Web Site Administration Tool</value>
+  </data>
+  <data name="HowtoAccesstheWebSiteAdministrationTool02" type="System.String">
+    <value>To access the Web Site Administration Tool, on the &lt;span class=UI&gt;Website&lt;/span&gt; menu, click &lt;span class=UI&gt;ASP.Net Configuration&lt;/span&gt;.</value>
+  </data>
+  <data name="Considerations01" type="System.String">
+    <value>Considerations</value>
+  </data>
+  <data name="Considerations02" type="System.String">
+    <value>The following sections provide some considerations for working with the Web Site Administration Tool.</value>
+  </data>
+  <data name="RestartingtheApplicationWhenSaving01" type="System.String">
+    <value>Restarting the Application When Saving</value>
+  </data>
+  <data name="RestartingtheApplicationWhenSaving02" type="System.String">
+    <value>Most changes to configuration settings that you make in the Web Site Administration Tool take effect immediately. This requires the Web site to which the change applies to be restarted. Because this will cause currently active sessions in the Web site to be lost, you should make configuration changes to a staged or development version of the Web site before publishing these changes to the production server.</value>
+  </data>
+  <data name="SavingYourSettings01" type="System.String">
+    <value>Saving Your Settings</value>
+  </data>
+  <data name="SavingYourSettings02" type="System.String">
+    <value>Most changes to configuration settings that you make in the Web Site Administration Tool take effect immediately. For settings for which the Web Site Administration Tool interface has a dedicated &lt;span class=UI&gt;Save&lt;/span&gt; button, leaving the Web Site Administration Tool idle or allowing the Web Site Administration Tool to time out before you click &lt;span class=UI&gt;Save&lt;/span&gt; will cause your configuration settings changes to be lost.</value>
+  </data>
+  <data name="TimeOut01" type="System.String">
+    <value>Time Out</value>
+  </data>
+  <data name="TimeOut02" type="System.String">
+    <value>As a security measure, the Web Site Administration Tool times out after a period of inactivity. Any settings that did not take effect immediately and were not saved will be lost. If the Web Site Administration Tool has timed out, close your browser, and then reopen the Web Site Administration Tool in a new window.</value>
+  </data>
+  <data name="TimeOut03" type="System.String">
+    <value>The Web Site Administration Tool manages only some of the configuration settings that are available to the Web site. Many other settings require direct modification of configuration files either manually, by using the Microsoft Management Console (MMC) snap-in for ASP.NET, or programmatically, by using the ASP.NET Configuration API.</value>
+  </data>
+  <data name="SeeAlso01" type="System.String">
+    <value>See Also</value>
+  </data>
+  <data name="SeeAlso02" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="SeeAlso03" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="SeeAlso04" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="SeeAlso05" type="System.String">
+    <value>Web Site Administration Tool Internals</value>
+  </data>
+</root>

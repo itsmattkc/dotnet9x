@@ -1,0 +1,28 @@
+LIBRARY
+EXPORTS
+  UrlCanonicalizeW=CORSHLW_UrlCanonicalizeW
+  UrlUnescapeW=CORSHLW_UrlUnescapeW
+  StrCmpNW=CORSHLW_StrCmpNW
+  StrCmpW=CORSHLW_StrCmpW
+  StrCmpNIW=CORSHLW_StrCmpNIW
+  StrCmpIW=CORSHLW_StrCmpIW
+  PathCreateFromUrlW=CORSHLW_PathCreateFromUrlW
+  StrStrW=CORSHLW_StrStrW
+  PathIsURLW=CORSHLW_PathIsURLW
+  UrlCombineW=CORSHLW_UrlCombineW
+  UrlEscapeW=CORSHLW_UrlEscapeW
+  UrlGetPartW=CORSHLW_UrlGetPartW
+  StrToIntW=CORSHLW_StrToIntW
+  UrlIsW=CORSHLW_UrlIsW
+  PathSkipRootW=CORSHLW_PathSkipRootW
+  PathIsUNCW=CORSHLW_PathIsUNCW
+  PathRemoveExtensionW=CORSHLW_PathRemoveExtensionW
+  StrRChrW=CORSHLW_StrRChrW
+  PathAddBackslashW=CORSHLW_PathAddBackslashW
+  StrChrW=CORSHLW_StrChrW
+  PathFindExtensionW=CORSHLW_PathFindExtensionW
+  PathIsRelativeW=CORSHLW_PathIsRelativeW
+  PathRemoveBackslashW=CORSHLW_PathRemoveBackslashW
+  PathFindFileNameW=CORSHLW_PathFindFileNameW
+  PathCanonicalizeW=CORSHLW_PathCanonicalizeW
+  PathCombineW=CORSHLW_PathCombineW

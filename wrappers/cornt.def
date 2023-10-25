@@ -1,0 +1,5 @@
+LIBRARY
+EXPORTS
+  RtlNtStatusToDosError=CORNT_RtlNtStatusToDosError
+  RtlUnwind=CORNT_RtlUnwind
+  IoUnregisterDeviceInterface=CORNT_IoUnregisterDeviceInterface

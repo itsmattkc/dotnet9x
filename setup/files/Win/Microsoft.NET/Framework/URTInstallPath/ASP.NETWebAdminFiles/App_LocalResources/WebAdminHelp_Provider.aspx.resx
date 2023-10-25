@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Title00" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolProviderTab01" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolProviderTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Provider&lt;/span&gt; tab of the Web Site Administration Tool to manage how ASP.NET stores the data for application features, such as user accounts, roles, and other settings.</value>
+  </data>
+  <data name="Introduction01" type="System.String">
+    <value>Introduction</value>
+  </data>
+  <data name="Introduction02" type="System.String">
+    <value>ASP.NET uses provider classes to manage data storage for various features, such as membership and role management. A provider class is a component that exposes specific ASP.NET functionality, such as managing user accounts in membership. Each of these application features requires data storage. Although each provider class performs the same application features, each provider class can store data in different ways. For example, different provider classes for ASP.NET membership might store user account information in the following different ways:</value>
+  </data>
+  <data name="Introduction03" type="System.String">
+    <value>In a Microsoft SQL Server database. </value>
+  </data>
+  <data name="Introduction04" type="System.String">
+    <value>In Microsoft Windows Active Directory directory service.</value>
+  </data>
+  <data name="Introduction05" type="System.String">
+    <value>In a custom user database.</value>
+  </data>
+  <data name="Introduction06" type="System.String">
+    <value>Each of these provider classes still performs the same core set of tasks for managing user accounts and you interact with the provider classes in your application in the same way.</value>
+  </data>
+  <data name="ConfiguringProvidersintheWebSiteAdministrationTool01" type="System.String">
+    <value>Configuring Providers in the Web Site Administration Tool</value>
+  </data>
+  <data name="ConfiguringProvidersintheWebSiteAdministrationTool02" type="System.String">
+    <value>The Web Site Administration Tool lets you use different provider classes for application features, such as membership and roles. ASP.NET is installed with several provider classes for each type of application feature. For example, ASP.NET has a provider class for membership that stores information in a SQL Server database (&lt;span class=LanguageKeyword&gt;AspNetSqlMembershipProvider&lt;/span&gt;), and another that stores membership information in Active Directory.</value>
+  </data>
+  <data name="ManagingProviderSettings01" type="System.String">
+    <value>Managing Provider Settings</value>
+  </data>
+  <data name="ManagingProviderSettings02" type="System.String">
+    <value>You can use the Web Site Administration Tool to change and test providers for the Web site. Your application can use a single provider for application features or it can use several different providers. </value>
+  </data>
+  <data name="ManagingProviderSettings03" type="System.String">
+    <value>By default, the Web Site Administration Tool uses the &lt;span class=LanguageKeyword&gt;AspNetSqlProvider&lt;/span&gt; provider for all application features. </value>
+  </data>
+  <data name="ManagingProviderSettings04" type="System.String">
+    <value>Use the Web Site Administration Tool to manage providers for the Web site in the following ways:</value>
+  </data>
+  <data name="ManagingProviderSettings05" type="System.String">
+    <value>Change from the default &lt;span class=LanguageKeyword&gt;AspNetSqlRoleProvider&lt;/span&gt; provider to the alternate &lt;span class=LanguageKeyword&gt;AspNetWindowsTokenRoleProvider&lt;/span&gt; provider, if you would prefer to use local Windows groups for role authorization.</value>
+  </data>
+  <data name="ManagingProviderSettings06" type="System.String">
+    <value>Specify whether to use the same provider for all application features or to use a different provider for each application feature. Generally, you select individual providers, only if you want precise control over where the information is stored or if you have to use a different provider for just one feature, such as roles.</value>
+  </data>
+  <data name="SelectingaSingleProvidervs.DifferentProviders01" type="System.String">
+    <value>Selecting a Single Provider vs. Different Providers</value>
+  </data>
+  <data name="SelectingaSingleProvidervs.DifferentProviders02" type="System.String">
+    <value>You can configure the Web site to use the same provider for all application features. In this case, all data for membership and roles and so on, is stored in a single data store (typically a single database). Alternatively, you can select a different provider for each application feature. </value>
+  </data>
+  <data name="SelectingaSingleProvidervs.DifferentProviders03" type="System.String">
+    <value>In the Web Site Administration Tool, on the &lt;span class=UI&gt;Provider&lt;/span&gt; tab, your first choice is whether you want to use the same provider for all features or to select a provider individually for each application feature. You can choose the following options:</value>
+  </data>
+  <data name="SelectingaSingleProvidervs.DifferentProviders04" type="System.String">
+    <value>To specify a single provider for all application features, click &lt;span class=UI&gt;Select a single provider for all site management data&lt;/span&gt;.</value>
+  </data>
+  <data name="SelectingaSingleProvidervs.DifferentProviders05" type="System.String">
+    <value>To specify providers for specific application features, click &lt;span class=UI&gt;Select a different provider for each feature (advanced)&lt;/span&gt;, and then select a provider for each application feature.</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider01" type="System.String">
+    <value>Configuring the SQL Server Provider</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider02" type="System.String">
+    <value>If you want to use the SQL Server provider to store application feature data in a SQL Server database, you must first configure SQL Server by creating the appropriate database. ASP.NET includes a command-line utility named aspnet_regsql.exe that performs this task for you.</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider03" type="System.String">
+    <value>The aspnet_regsql.exe executable is located in the WINDOWS\Microsoft.NET\Framework\versionNumber folder on the Web server. The aspnet_regsql.exe utility is used to both create the SQL Server database and add or remove options from an existing database.</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider04" type="System.String">
+    <value>You can run the aspnet_regsql.exe executable without any command-line arguments to run a wizard that will help you with specifying connection information for SQL Server and installing or removing the database elements for all supported features. You can also run the aspnet_regsql.exe executable as a command-line utility to configure database elements for individual features.</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider05" type="System.String">
+    <value>To run the aspnet_regsql.exe wizard, run the aspnet_regsql.exe executable without any command-line arguments, as shown in the following example.</value>
+  </data>
+  <data name="ConfiguringtheSQLServerProvider06" type="System.String">
+    <value>To view online Help for additional options that are available with the aspnet_regsql.exe utility, use the /? option.</value>
+  </data>
+  <data name="BehindtheScenes01" type="System.String">
+    <value>Behind the Scenes</value>
+  </data>
+  <data name="BehindtheScenes02" type="System.String">
+    <value>The &lt;span class=UI&gt;Provider&lt;/span&gt; tab manages configuration settings that are stored in the Web.config file for your application. Specifically, the settings that are managed through the &lt;span class=UI&gt;Provider&lt;/span&gt; tab exist in the &amp;lt;membership&amp;gt; and &amp;lt;roleManager&amp;gt; sections of your configuration file. </value>
+  </data>
+  <data name="BehindtheScenes03" type="System.String">
+    <value>The following code is the Web.config file that is generated by the Web Site Administration Tool after specifying that the &lt;span class=LanguageKeyword&gt;AspNetWindowsTokenRoleProvider&lt;/span&gt; provider be used for role management.</value>
+  </data>
+  <data name="MoreInformation01" type="System.String">
+    <value>More Information</value>
+  </data>
+  <data name="MoreInformation02" type="System.String">
+    <value>For more information, see the following sections in the .NET Framework class reference and the ASP.NET Settings Schema:</value>
+  </data>
+  <data name="MoreInformation03" type="System.String">
+    <value>membership Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="MoreInformation04" type="System.String">
+    <value>profile Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="MoreInformation05" type="System.String">
+    <value>roleManager Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="SeeAlso01" type="System.String">
+    <value>See Also</value>
+  </data>
+  <data name="SeeAlso02" type="System.String">
+    <value>Web Site Administration Tool Overview</value>
+  </data>
+  <data name="SeeAlso03" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="SeeAlso04" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="SeeAlso05" type="System.String">
+    <value>Web Site Administration Tool Internals</value>
+  </data>
+</root>

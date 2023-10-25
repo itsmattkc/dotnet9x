@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="All" type="System.String">
+    <value>All</value>
+  </data>
+  <data name="Back" type="System.String">
+    <value>Back</value>
+  </data>
+  <data name="Email" type="System.String">
+    <value>E-mail</value>
+  </data>
+  <data name="FindUser" type="System.String">
+    <value>Find User</value>
+  </data>
+  <data name="For" type="System.String">
+    <value>for:</value>
+  </data>
+  <data name="Instructions" type="System.String">
+    <value>Use this page to manage the members in the specified role. To add a user to the role, search for the user name and then select &lt;b&gt;User Is In Role&lt;/b&gt; for that user.</value>
+  </data>
+  <data name="ManageRoleMembership" type="System.String">
+    <value>Manage Role Membership</value>
+  </data>
+  <data name="NotFoundUsers" type="System.String">
+    <value>No users found for this search.</value>
+  </data>
+  <data name="Role" type="System.String">
+    <value>Role:</value>
+  </data>
+  <data name="UserInRole" type="System.String">
+    <value>User Is In Role</value>
+  </data>
+  <data name="UserID" type="System.String">
+    <value>User ID</value>
+  </data>
+  <data name="Username" type="System.String">
+    <value>User name</value>
+  </data>
+  <data name="SearchForUsers" type="System.String">
+    <value>Search for Users</value>
+  </data>
+  <data name="SearchBy" type="System.String">
+    <value>Search By:</value>
+  </data>
+
+</root>

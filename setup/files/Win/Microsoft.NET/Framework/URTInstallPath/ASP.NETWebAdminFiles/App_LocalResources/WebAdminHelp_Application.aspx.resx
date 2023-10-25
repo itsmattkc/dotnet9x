@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Title00" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolApplicationTab01" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolApplicationTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Application&lt;/span&gt; tab of the Web Site Administration Tool (Web Site Administration Tool) to manage commonly used settings related to the Web application and site.</value>
+  </data>
+  <data name="Introduction01" type="System.String">
+    <value>Introduction</value>
+  </data>
+  <data name="Introduction02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Application&lt;/span&gt; tab to manage the following:</value>
+  </data>
+  <data name="Introduction03" type="System.String">
+    <value>Application settings name/value pairs. </value>
+  </data>
+  <data name="Introduction04" type="System.String">
+    <value>Application settings are name/value pairs that represent configurable values text in the Web application. Use application settings to store custom application configuration information, such as file paths, XML Web service URLs, commonly used text, or any information that you want to maintain in a central location and be able to change easily.</value>
+  </data>
+  <data name="Introduction05" type="System.String">
+    <value>Important   Application settings are stored in the configuration file as plain text. Therefore, you must take appropriate security measures when you use application settings. Do not store sensitive information, such as user names, passwords, or database connection strings in application settings.</value>
+  </data>
+  <data name="Introduction06" type="System.String">
+    <value>Simple Mail Transfer Protocol (SMTP) settings.</value>
+  </data>
+  <data name="Introduction07" type="System.String">
+    <value>If the Web site requires the ability to send e-mail (for example, to send users a password), you must specify the SMTP server that your site uses.</value>
+  </data>
+  <data name="Introduction08" type="System.String">
+    <value>Application status.</value>
+  </data>
+  <data name="Introduction09" type="System.String">
+    <value>You can take your application offline (shut it down) to perform maintenance or to bring a new Microsoft SQL Server Express edition database online.</value>
+  </data>
+  <data name="Introduction10" type="System.String">
+    <value>Debugging and tracing.</value>
+  </data>
+  <data name="Introduction11" type="System.String">
+    <value>Debugging and tracing let you diagnose and fix problems with the Web application, and are primarily intended to be used during development. Enabling debugging causes the pages in the Web site to be compiled with information that the .NET Framework or the Microsoft Visual Studio debugger can use to step through your code. Enabling tracing causes pages to generate information about individual Web requests, the HTTP headers that are sent with the requests, the state of controls on the page, and other details about page processing. </value>
+  </data>
+  <data name="ConfiguringApplicationSettings01" type="System.String">
+    <value>Configuring Application Settings</value>
+  </data>
+  <data name="ConfiguringApplicationSettings02" type="System.String">
+    <value>When you create an application setting, you specify a name and value for the setting to be created. This lets you access the value of the setting in your application by using the &lt;span class=LanguageKeyword&gt;AppSettings&lt;/span&gt; property of the &lt;span class=LanguageKeyword&gt;ConfigurationSettings&lt;/span&gt; class. For example, if you define an application setting named AppName with a value that represents the name of your application, you might use it to set the heading of a page as shown in the following code example.</value>
+  </data>
+  <data name="ConfiguringApplicationSettings03" type="System.String">
+    <value>[Visual Basic]</value>
+  </data>
+  <data name="ConfiguringApplicationSettings04" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringApplicationSettings05" type="System.String">
+    <value>[C#]</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline01" type="System.String">
+    <value>Taking Applications Offline and Online</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline02" type="System.String">
+    <value>If you want to do maintenance on the Web site, you can take it offline. This shuts the process down that is running the Web site so that the site no longer serves pages. You can then edit pages or other files without the possibility that a page will be requested while you are in the middle of your edits, potentially resulting in an error. Taking an application offline is also useful, if you are working with SQL Server Standard edition and want to swap or add an .mdf database file to the application. If the application is running, it cannot attach to new .mdf files.</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline03" type="System.String">
+    <value>When you have finished editing files or adding or changing .mdf files, you can put the application back online.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings01" type="System.String">
+    <value>Configuring SMTP Settings</value>
+  </data>
+  <data name="ConfiguringSMTPSettings02" type="System.String">
+    <value>Some features of the Web site require that your application be able to send e-mail. To send e-mail, the application must have access to a Simple Mail Transfer Protocol (SMTP) server, which forwards e-mail from your application to the e-mail recipient. </value>
+  </data>
+  <data name="ConfiguringSMTPSettings03" type="System.String">
+    <value>IIS) includes an SMTP virtual server, although it is not installed by default. If you want to be able to send e-mail from your own computer, you can install the SMTP server by using &lt;span class=UI&gt;Add or Remove Programs&lt;/span&gt; in the Microsoft Windows Control Panel. The SMTP server is available as a Windows Component as part of IIS. After you install the IIS SMTP server, you can configure it using the Internet Information Services Management Console. For detailed information about how to install the IIS SMTP virtual server, see the Knowledge Base (KB) search page.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings04" type="System.String">
+    <value>Note   If you install an SMTP server on the computer, you must take security precautions to make sure that the SMTP server is not vulnerable to being used as a spam server. For more information about how to help secure the IIS SMTP virtual server, go to Microsoft.com and search for SMTP security.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings05" type="System.String">
+    <value>If you do not want to install the IIS SMTP server, or if the application will run on a different computer, contact the network or Web server administrator for information about configuration settings for an SMTP server.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings06" type="System.String">
+    <value>The following table describes the SMTP settings.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings07" type="System.String">
+    <value>Setting</value>
+  </data>
+  <data name="ConfiguringSMTPSettings08" type="System.String">
+    <value>Description</value>
+  </data>
+  <data name="ConfiguringSMTPSettings09" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringSMTPSettings10" type="System.String">
+    <value>Server Name</value>
+  </data>
+  <data name="ConfiguringSMTPSettings11" type="System.String">
+    <value>The name of your SMTP server. The default is &lt;span class=code&gt;localhost&lt;/span&gt;, which means that ASP.NET will use an SMTP server on the local computer. Typically, this is the default SMTP virtual server. Otherwise, the name of an SMTP server that is available on the network.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings12" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringSMTPSettings13" type="System.String">
+    <value>Server Port</value>
+  </data>
+  <data name="ConfiguringSMTPSettings14" type="System.String">
+    <value>The port on your SMTP server. The default is 25.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings15" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringSMTPSettings16" type="System.String">
+    <value>From</value>
+  </data>
+  <data name="ConfiguringSMTPSettings17" type="System.String">
+    <value>The e-mail address that will appear in the &lt;span class=UI&gt;From:&lt;/span&gt; header of e-mail messages sent by the Web site.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings18" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringSMTPSettings19" type="System.String">
+    <value>Authentication</value>
+  </data>
+  <data name="ConfiguringSMTPSettings20" type="System.String">
+    <value>The type of authentication that your SMTP server uses, if any. If your SMTP server uses &lt;span class=UI&gt;Basic authentication&lt;/span&gt;, provide the account name and password of a user account that is authorized to forward e-mail messages through the server.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings21" type="System.String">
+    <value>The user name and password for &lt;span class=UI&gt;Basic authentication&lt;/span&gt; are stored in clear text in the Web.config file.</value>
+  </data>
+  <data name="ConfiguringSMTPSettings22" type="System.String">
+    <value></value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing01" type="System.String">
+    <value>Configuring Debugging and Tracing</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing02" type="System.String">
+    <value>You must have Administrative credentials on the computer where the Web application runs to change its debugging and tracing settings.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing03" type="System.String">
+    <value>To manage the debugging and tracing features, click &lt;span class=UI&gt;Configure debugging and tracing&lt;/span&gt;, and then set the following options:</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing04" type="System.String">
+    <value>Enable Debugging</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing05" type="System.String">
+    <value>Select this option to enable debugging for all pages in the Web site. </value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing06" type="System.String">
+    <value>Capture tracing information</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing07" type="System.String">
+    <value>Select this option to enable tracing for all pages in the Web site. If this check box is selected, the remaining options on the page are enabled.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing08" type="System.String">
+    <value>If you have set the option to capture tracing information, you can make the following choices: </value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing09" type="System.String">
+    <value>Display tracing information on individual pages</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing10" type="System.String">
+    <value>Select this option to append tracing information to the bottom of Web pages on your site. If you do not display tracing information about individual pages, the information is still captured. To view trace information, you can request the Trace.axd page for the Web site, which acts as a tracing information viewer.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing11" type="System.String">
+    <value>Local requests only</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing12" type="System.String">
+    <value>Select this option to view trace information only for request from the host Web server (localhost).</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing13" type="System.String">
+    <value>All requests</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing14" type="System.String">
+    <value>Select this option to view trace information from any computer.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing15" type="System.String">
+    <value>Under &lt;span class=UI&gt;Select the sort order for trace results&lt;/span&gt;, specify how you want to display trace information, as follows:</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing16" type="System.String">
+    <value>By time</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing17" type="System.String">
+    <value>Select this option to display trace information in the order that it is captured.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing18" type="System.String">
+    <value>By category</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing19" type="System.String">
+    <value>Select this option to display trace information alphabetically within user-defined categories.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing20" type="System.String">
+    <value>Number of trace requests to cache</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing21" type="System.String">
+    <value>Enter the number of trace requests to store on the server. You can view cached information by using the trace viewer (http://server/application/trace.axd). The default is 10. If you do not select the &lt;span class=UI&gt;Most recent trace results&lt;/span&gt; option, and the limit is reached, trace is automatically disabled.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing22" type="System.String">
+    <value>Under &lt;span class=UI&gt;Select which trace results to cache&lt;/span&gt;, specify how you want to display trace output, as follows:</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing23" type="System.String">
+    <value>Most recent trace results</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing24" type="System.String">
+    <value>Select this option to display the most recent trace output and to discard older trace data beyond the limits that are indicated by &lt;span class=UI&gt;Number of trace requests to cache&lt;/span&gt;.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing25" type="System.String">
+    <value>Oldest trace results</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing26" type="System.String">
+    <value>Select this option to display trace data for requests until &lt;span class=UI&gt;Number of trace requests to cache&lt;/span&gt; is reached.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing27" type="System.String">
+    <value>Note   When you are finished troubleshooting the Web site, disable debugging and tracing to get maximum performance from your Web application.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing28" type="System.String">
+    <value>Security Note   When tracing is enabled for a page, trace information might appear on any browser that makes a request for the page from the server. Because tracing displays sensitive information, such as the values of server variables, it can represent a security threat. Make sure that you disable page tracing for the page before publishing the Web application to a production server. </value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing29" type="System.String">
+    <value>To configure a custom error page for the Web site, click &lt;span class=UI&gt;Define default error page&lt;/span&gt; and then specify the following:</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing30" type="System.String">
+    <value>Use the default error message</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing31" type="System.String">
+    <value>Select this option to use the default error page.</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing32" type="System.String">
+    <value>Specify a URL to use as the default error page</value>
+  </data>
+  <data name="ConfiguringDebuggingandTracing33" type="System.String">
+    <value>Select this option to use a custom error page, and then choose the page to use.</value>
+  </data>
+  <data name="BehindtheScenes01" type="System.String">
+    <value>Behind the Scenes</value>
+  </data>
+  <data name="BehindtheScenes02" type="System.String">
+    <value>The &lt;span class=UI&gt;Application&lt;/span&gt; tab provides a simple Web interface for managing configuration settings that are stored in the Web.config file for your application. </value>
+  </data>
+  <data name="ApplicationSettings01" type="System.String">
+    <value>Application Settings</value>
+  </data>
+  <data name="ApplicationSettings02" type="System.String">
+    <value>The settings that are managed through the &lt;span class=UI&gt;Application Settings&lt;/span&gt; feature of the &lt;span class=UI&gt;Application&lt;/span&gt; tab exist in the &amp;lt;appSettings&amp;gt; section of the Web.config file for the Web application. This is a predefined configuration section provided by the .NET Framework. The highlighted lines in the following code are an example configuration file that is generated after you use the Web Site Administration Tool to create an application setting named &lt;span class=code&gt;ApplicationName&lt;/span&gt;.</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline01" type="System.String">
+    <value>Taking Applications Offline and Online</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline02" type="System.String">
+    <value>The offline setting exists within the &amp;lt;httpRuntime&amp;gt; section of the Web.config file for the Web site. The highlighted lines in the following code are generated after you use the Web Site Administration Tool to take an application offline.</value>
+  </data>
+  <data name="TakingApplicationsOfflineandOnline03" type="System.String">
+    <value>As long as the &lt;span class=LanguageKeyword&gt;httpRuntime&lt;/span&gt; setting is disabled, ASP.NET does not create an System.AppDomain object for your application upon receiving a request. In effect, the Web application cannot be started. </value>
+  </data>
+  <data name="SMTPSettings01" type="System.String">
+    <value>SMTP Settings</value>
+  </data>
+  <data name="SMTPSettings02" type="System.String">
+    <value>The settings that are managed through the &lt;span class=UI&gt;SMTP Settings&lt;/span&gt; feature of the &lt;span class=UI&gt;Application&lt;/span&gt; tab exist within the &amp;lt;mailSettings&amp;gt; section of the Web.config file for the Web site, which is a child of the &amp;lt;system.net&amp;gt; element (not of the &amp;lt;system.web&amp;gt; element). The highlighted lines in the following code are generated after you use the Web Site Administration Tool to specify SMTP settings.</value>
+  </data>
+  <data name="DebuggingandTracing01" type="System.String">
+    <value>Debugging and Tracing</value>
+  </data>
+  <data name="DebuggingandTracing02" type="System.String">
+    <value>The settings managed through the &lt;span class=UI&gt;Debugging and Tracing&lt;/span&gt; feature of the &lt;span class=UI&gt;Application&lt;/span&gt; tab exist within the &amp;lt;trace&amp;gt;, &amp;lt;compilation&amp;gt;, and &amp;lt;customErrors&amp;gt; sections of the Web.config file. The following code is an example configuration file that is generated after you use the Web Site Administration Tool to enable both tracing and debugging and to establish a default custom error page.</value>
+  </data>
+  <data name="DebuggingandTracing03" type="System.String">
+    <value>In this example, both debugging and trace are enabled, tracing is displayed on pages that are requested from the Web server only, trace results are sorted by category, and the 10 most recent trace results are cached for display. Additionally, the default error page is myErrorPage.aspx.</value>
+  </data>
+  <data name="MoreInformation01" type="System.String">
+    <value>More Information</value>
+  </data>
+  <data name="MoreInformation02" type="System.String">
+    <value>For more information, in the .NET Framework class reference and the ASP.NET Settings Schema, see the following:</value>
+  </data>
+  <data name="MoreInformation03" type="System.String">
+    <value>System.Configuration.ConfigurationSettings</value>
+  </data>
+  <data name="MoreInformation04" type="System.String">
+    <value>compilation Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="MoreInformation05" type="System.String">
+    <value>customErrors Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="MoreInformation06" type="System.String">
+    <value>trace Element (ASP.NET Settings Schema)</value>
+  </data>
+  <data name="SeeAlso01" type="System.String">
+    <value>See Also</value>
+  </data>
+  <data name="SeeAlso02" type="System.String">
+    <value>Web Site Administration Tool Overview</value>
+  </data>
+  <data name="SeeAlso03" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="SeeAlso04" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="SeeAlso05" type="System.String">
+    <value>Web Site Administration Tool Internals</value>
+  </data>
+</root>
