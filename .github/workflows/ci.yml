@@ -43,10 +43,10 @@ jobs:
           setup/dotnet95.exe
 
     - name: Upload Continuous Release
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'itsmattkc/dotnet95' }}
-      shell: bash
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        curl -fLOSs --retry 2 --retry-delay 60 https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        bash upload.sh setup/dotnet95.exe
+      if: ${{ github.ref == 'refs/heads/master' }}
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "setup/dotnet95.exe"
+        allowUpdates: true
+        name: "Continuous Release"
+        removeArtifacts: true
