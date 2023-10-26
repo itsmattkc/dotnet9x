@@ -50,3 +50,5 @@ jobs:
         allowUpdates: true
         name: "Continuous Release"
         removeArtifacts: true
+        commit: "master"
+        tag: "continuous"
