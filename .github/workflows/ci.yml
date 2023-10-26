@@ -43,7 +43,7 @@ jobs:
           setup/dotnet95.exe
 
     - name: Upload Continuous Release
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'isledecomp/isle' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'itsmattkc/dotnet95' }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
