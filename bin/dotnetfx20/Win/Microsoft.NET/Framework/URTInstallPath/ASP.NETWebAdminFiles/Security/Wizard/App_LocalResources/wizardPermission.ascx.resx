@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AddThisRule" type="System.String">
+    <value>Add This Rule</value>
+  </data>
+  <data name="AreYouSure" type="System.String">
+    <value>Are you sure you want to delete the rule: {0}? </value>
+  </data>
+  <data name="Delete" type="System.String">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteRule" type="System.String">
+    <value>Delete Rule</value>
+  </data>
+  <data name="DimmedRules" type="System.String">
+    <value>Rules that appear dimmed are inherited from the parent and cannot be changed at this level.</value>
+  </data>
+  <data name="Instructions" type="System.String">
+    <value>&lt;b&gt;Add New Access Rules&lt;/b&gt;&lt;br&gt;&lt;br&gt;You can optionally add access rules to control access to the whole Web site or to individual folders. Rules can apply to specific users and roles, to all users, to anonymous users, or to some combination of these. Rules apply to subfolders.&lt;br&gt;&lt;br&gt;To add a new access rule, select the site name or a folder to set a rule for. Then select the users or roles the rule applies to and select Allow or Deny.&lt;br&gt;&lt;br&gt;If you define multiple rules, they are applied in the order shown in the table. The first rule that matches applies. You will be able to add, remove, modify, and reorder your rules later.&lt;br&gt;</value>
+  </data>
+  <data name="InvalidInput" type="System.String">
+    <value>Invalid input</value>
+  </data>
+  <data name="NoRoles" type="System.String">
+    <value>[no roles]</value>
+  </data>
+  <data name="Permission" type="System.String">
+    <value>Permission</value>
+  </data>
+  <data name="SearchForUsers" type="System.String">
+    <value>Search for users</value>
+  </data>
+  <data name="UsersAndRoles" type="System.String">
+    <value>Users And Roles</value>
+  </data>  
+  <data name="AddNewAccessRule" type="System.String">
+    <value>Add New Access Rule</value>
+  </data>  
+  <data name="SelectDirForRule" type="System.String">
+    <value>Select a directory for this rule:</value>
+  </data>  
+  <data name="RuleAppliesTo" type="System.String">
+    <value>Rule applies to:</value>
+  </data>  
+  <data name="Role" type="System.String">
+    <value>Role</value>
+  </data>  
+  <data name="User" type="System.String">
+    <value>User</value>
+  </data>  
+  <data name="Allow" type="System.String">
+    <value>Allow</value>
+  </data>  
+  <data name="Deny" type="System.String">
+    <value>Deny</value>
+  </data>  
+  <data name="AllUsers" type="System.String">
+    <value>All Users</value>
+  </data>  
+  <data name="AnonymousUsers" type="System.String">
+    <value>Anonymous Users</value>
+  </data>  
+  <data name="Delete" type="System.String">
+    <value>Delete</value>
+  </data>  
+  <data name="BracketAll" type="System.String">
+    <value>[all]</value>
+  </data>  
+  <data name="BracketAnonymous" type="System.String">
+    <value>[anonymous]</value>
+  </data>
+  <data name="RolesDisabled" type="System.String">
+    <value>[roles disabled]</value>
+  </data>
+</root>

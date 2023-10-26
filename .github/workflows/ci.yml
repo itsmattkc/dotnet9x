@@ -1,0 +1,56 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/checkout@v3
+      with:
+        repository: 'itsmattkc/msvc420'
+        path: msvc420
+
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.13
+      with:
+        # Use minimum supported version
+        cmake-version: '3.13.x'
+
+    - name: Setup NSIS
+      shell: cmd
+      run: |
+        wget -c https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51.zip/download
+        7z x nsis-2.51.zip
+
+    - name: Build wrappers
+      shell: cmd
+      run: |
+        call .\msvc420\bin\VCVARS32.BAT x86
+        cd wrappers
+        mkdir build
+        cd build
+        cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
+        cmake --build .
+
+    - name: Build installer
+      shell: cmd
+      run: |
+        nsis-2.51/makensis.exe setup/dotnet95.nsi
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: setup
+        path: |
+          setup/dotnet95.exe
+
+    - name: Upload Continuous Release
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'isledecomp/isle' }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./upload.sh setup/dotnet95.exe

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Title00" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolSecurityTab01" type="System.String">
+    <value>Web Site Administration Tool Security Tab</value>
+  </data>
+  <data name="WebSiteAdministrationToolSecurityTab02" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Security&lt;/span&gt; tab of the Web Site Administration Tool to manage rules for securing specific resources in the Web application. ASP.NET uses a security system that lets you restrict access to specific user accounts or the roles to which the user accounts belong. With the &lt;span class=UI&gt;Security&lt;/span&gt; tab, you manage user accounts, roles, and access rules for the Web site. Before using the &lt;span class=UI&gt;Security&lt;/span&gt; tab for the first time, use the &lt;span class=UI&gt;Security Setup Wizard&lt;/span&gt; to configure basic security settings for the Web site.</value>
+  </data>
+  <data name="Introduction01" type="System.String">
+    <value>Introduction</value>
+  </data>
+  <data name="Introduction02" type="System.String">
+    <value>ASP.NET security is based on the concepts of user accounts, roles, and access rules and lets you restrict access to your Web application resources to only the user accounts that you specify. Security settings are established using a combination of configuration settings and data stored in a database (or other data store). User accounts and roles that you create are stored in the database and access rules are stored in the Web.config file.</value>
+  </data>
+  <data name="Introduction03" type="System.String">
+    <value>You can configure your application to use the following types of security, which depend on how the Web site will be used:</value>
+  </data>
+  <data name="Introduction04" type="System.String">
+    <value>Forms-based authentication (&lt;span class=UI&gt;From the Internet&lt;/span&gt;)</value>
+  </data>
+  <data name="Introduction05" type="System.String">
+    <value>Forms-based authentication is used for Web sites that are made available to the Internet. Forms-based authentication uses the ASP.NET membership system to manage individual user accounts and groups (roles). User account information is stored in a local database or in a Microsoft SQL Server database. You can use the ASP.NET logon controls to create a logon page where users can enter their credentials. </value>
+  </data>
+  <data name="Introduction06" type="System.String">
+    <value>Integrated Microsoft Windows authentication (&lt;span class=UI&gt;From a local network&lt;/span&gt;)</value>
+  </data>
+  <data name="Introduction07" type="System.String">
+    <value>Windows authentication interacts with Windows security, using the logon credentials that users provide when they log on to Windows. Therefore, Windows authentication is suited for intranet scenarios, where users have logged on to a Windows-based network. You do not have to create a logon page, because users are automatically logged on to your application with their Windows credentials.</value>
+  </data>
+  <data name="Introduction08" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Users&lt;/span&gt; section of the &lt;span class=UI&gt;Security&lt;/span&gt; tab to complete the following tasks:</value>
+  </data>
+  <data name="Introduction09" type="System.String">
+    <value>Create, edit, and delete registered user accounts for the Web site.</value>
+  </data>
+  <data name="Introduction10" type="System.String">
+    <value>View a list of all registered user accounts for the Web site.</value>
+  </data>
+  <data name="Introduction11" type="System.String">
+    <value>Change the authentication method that is used by the Web site. </value>
+  </data>
+  <data name="Introduction12" type="System.String">
+    <value>Note   You can create and manage user accounts, if you chose the &lt;span class=UI&gt;From the Internet&lt;/span&gt; option for your authentication type (if you are using forms-based authentication). If you chose the &lt;span class=UI&gt;From a local network&lt;/span&gt; option as your authentication type (if you using integrated Windows authentication), you cannot manage individual user accounts. If you change the authentication type, any user information that you have created will be lost. Additionally, access rules might no longer work in the way that you configured them. Generally, you should select an authentication type only when you first configure the Web site.</value>
+  </data>
+  <data name="Introduction13" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Roles&lt;/span&gt; section of the &lt;span class=UI&gt;Security&lt;/span&gt; tab to group user accounts, which makes it easier to assign permissions (authorization).</value>
+  </data>
+  <data name="Introduction14" type="System.String">
+    <value>Use the &lt;span class=UI&gt;Access Rules&lt;/span&gt; section of the &lt;span class=UI&gt;Security&lt;/span&gt; tab to allow or deny access for specified pages to specific user accounts or to all user accounts that belong in a specified role. Typically, you use an access rule to restrict pages for some user accounts. </value>
+  </data>
+  <data name="CreatingUsers01" type="System.String">
+    <value>Creating Users</value>
+  </data>
+  <data name="CreatingUsers02" type="System.String">
+    <value>You can create and manage user accounts, if you have set the authentication type to &lt;span class=UI&gt;From the Internet&lt;/span&gt; (forms authentication). To change authentication types, click &lt;span class=UI&gt;Select authentication type&lt;/span&gt;.</value>
+  </data>
+  <data name="CreatingUsers03" type="System.String">
+    <value>To create user accounts</value>
+  </data>
+  <data name="CreatingUsers04" type="System.String">
+    <value>Click &lt;span class=UI&gt;Create user&lt;/span&gt;, and then specify the following information.</value>
+  </data>
+  <data name="CreatingUsers05" type="System.String">
+    <value>User Name</value>
+  </data>
+  <data name="CreatingUsers06" type="System.String">
+    <value>Enter the name for the user account to create.</value>
+  </data>
+  <data name="CreatingUsers07" type="System.String">
+    <value>Password</value>
+  </data>
+  <data name="CreatingUsers08" type="System.String">
+    <value>Enter the password for &lt;span class=UI&gt;User Name&lt;/span&gt;. Passwords are case sensitive.</value>
+  </data>
+  <data name="CreatingUsers09" type="System.String">
+    <value>Confirm Password</value>
+  </data>
+  <data name="CreatingUsers10" type="System.String">
+    <value>Re-enter &lt;span class=UI&gt;Password&lt;/span&gt;. </value>
+  </data>
+  <data name="CreatingUsers11" type="System.String">
+    <value>E-mail</value>
+  </data>
+  <data name="CreatingUsers12" type="System.String">
+    <value>Enter the e-mail address for &lt;span class=UI&gt;User Name&lt;/span&gt;. </value>
+  </data>
+  <data name="CreatingUsers13" type="System.String">
+    <value>The Web Site Administration Tool does not confirm whether the address that you enter is a valid e-mail address, but it does validate that the e-mail address conforms to the correct format for e-mail addresses.</value>
+  </data>
+  <data name="CreatingUsers14" type="System.String">
+    <value>Security Question</value>
+  </data>
+  <data name="CreatingUsers15" type="System.String">
+    <value>Enter a question to ask the user when they need to reset or recover their password.</value>
+  </data>
+  <data name="CreatingUsers16" type="System.String">
+    <value>Security Answer</value>
+  </data>
+  <data name="CreatingUsers17" type="System.String">
+    <value>Enter the answer to &lt;span class=UI&gt;Security Question&lt;/span&gt;.</value>
+  </data>
+  <data name="CreatingUsers18" type="System.String">
+    <value>Active User</value>
+  </data>
+  <data name="CreatingUsers19" type="System.String">
+    <value>Select this option to enable this user account as an active (current) user of the site. If you do not select this option, the user information is stored in the database, but the user cannot log on to the Web site.</value>
+  </data>
+  <data name="CreatingUsers20" type="System.String">
+    <value>Roles</value>
+  </data>
+  <data name="CreatingUsers21" type="System.String">
+    <value>Select the roles for &lt;span class=UI&gt;User Name&lt;/span&gt;. You create roles separately. For more information, see the next section. </value>
+  </data>
+  <data name="CreatingRoles01" type="System.String">
+    <value>Creating Roles</value>
+  </data>
+  <data name="CreatingRoles02" type="System.String">
+    <value>To create roles</value>
+  </data>
+  <data name="CreatingRoles03" type="System.String">
+    <value>On the &lt;span class=UI&gt;Security&lt;/span&gt; tab, click &lt;span class=UI&gt;Enable roles&lt;/span&gt;. </value>
+  </data>
+  <data name="CreatingRoles04" type="System.String">
+    <value>Click &lt;span class=UI&gt;Create or Manage roles&lt;/span&gt;.</value>
+  </data>
+  <data name="CreatingRoles05" type="System.String">
+    <value>In the &lt;span class=UI&gt;New role name&lt;/span&gt; box, enter a name for the role to create, such as Administrator, Member, or Guest, and then click &lt;span class=UI&gt;Add Role&lt;/span&gt;.</value>
+  </data>
+  <data name="CreatingRoles06" type="System.String">
+    <value>To add user accounts to roles</value>
+  </data>
+  <data name="CreatingRoles07" type="System.String">
+    <value>On the &lt;span class=UI&gt;Security&lt;/span&gt; tab, click &lt;span class=UI&gt;Manage Users&lt;/span&gt;, and then click&lt;span class=UI&gt; Edit User&lt;/span&gt;. </value>
+  </data>
+  <data name="CreatingRoles08" type="System.String">
+    <value>Under &lt;span class=UI&gt;Roles&lt;/span&gt;, select the roles for the user account.</value>
+  </data>
+  <data name="CreatingAccessRules01" type="System.String">
+    <value>Creating Access Rules</value>
+  </data>
+  <data name="CreatingAccessRules02" type="System.String">
+    <value>To create access rules</value>
+  </data>
+  <data name="CreatingAccessRules03" type="System.String">
+    <value>On the &lt;span class=UI&gt;Security&lt;/span&gt; tab, click &lt;span class=UI&gt;Create access rules&lt;/span&gt;.</value>
+  </data>
+  <data name="CreatingAccessRules04" type="System.String">
+    <value>Specify the following options:</value>
+  </data>
+  <data name="CreatingAccessRules05" type="System.String">
+    <value>Select a directory for this rule</value>
+  </data>
+  <data name="CreatingAccessRules06" type="System.String">
+    <value>You can choose to create a rule that applies to the whole site or to only a specific subdirectory. In the directory structure display for the Web site, select the directory to which the rule applies. </value>
+  </data>
+  <data name="CreatingAccessRules07" type="System.String">
+    <value>Under &lt;span class=UI&gt;Rule applies to&lt;/span&gt;, specify how to apply the rule.</value>
+  </data>
+  <data name="CreatingAccessRules08" type="System.String">
+    <value>Role</value>
+  </data>
+  <data name="CreatingAccessRules09" type="System.String">
+    <value>Select &lt;span class=UI&gt;Role&lt;/span&gt;, and then in the list, select the name of the role to which the access rule applies.</value>
+  </data>
+  <data name="CreatingAccessRules10" type="System.String">
+    <value>User</value>
+  </data>
+  <data name="CreatingAccessRules11" type="System.String">
+    <value>Select &lt;span class=UI&gt;User&lt;/span&gt;, and then enter the name of the user account to which the access rule applies. If you are using ASP.NET membership (Web site security is set to &lt;span class=UI&gt;From the internet&lt;/span&gt;), you can also use the Search for users feature.</value>
+  </data>
+  <data name="CreatingAccessRules12" type="System.String">
+    <value>All users</value>
+  </data>
+  <data name="CreatingAccessRules13" type="System.String">
+    <value>Select this option to apply the rule to all visitors to the Web site.</value>
+  </data>
+  <data name="CreatingAccessRules14" type="System.String">
+    <value>Note   Be careful when you create a rule with the &lt;span class=UI&gt;All users&lt;/span&gt; option. Because rules are applied in order, you can unintentionally create a rule that prevents all users from accessing a folder.</value>
+  </data>
+  <data name="CreatingAccessRules15" type="System.String">
+    <value>Anonymous users</value>
+  </data>
+  <data name="CreatingAccessRules16" type="System.String">
+    <value>Select this option to apply this rule to anonymous (non-registered) user accounts only. </value>
+  </data>
+  <data name="CreatingAccessRules17" type="System.String">
+    <value>Typically, you choose the &lt;span class=UI&gt;Anonymous users&lt;/span&gt; option to restrict (deny) access for users who are not logged on.</value>
+  </data>
+  <data name="CreatingAccessRules18" type="System.String">
+    <value>Permission</value>
+  </data>
+  <data name="CreatingAccessRules19" type="System.String">
+    <value>Select &lt;span class=UI&gt;Allow&lt;/span&gt; to give access to the specified directory for the specified user account or role.</value>
+  </data>
+  <data name="CreatingAccessRules20" type="System.String">
+    <value>Select &lt;span class=UI&gt;Deny&lt;/span&gt; to not allow access to the specified directory for the specified user account or role.</value>
+  </data>
+  <data name="CreatingAccessRules21" type="System.String">
+    <value>For example, to prevent users who are not logged on (anonymous) from viewing pages in a folder, click the folder, select &lt;span class=UI&gt;Anonymous users&lt;/span&gt;, and then select &lt;span class=UI&gt;Deny&lt;/span&gt;. </value>
+  </data>
+  <data name="CreatingAccessRules22" type="System.String">
+    <value>Sometimes, you might have to create multiple rules for the same folder in order to establish the correct permissions. For example, you might create a rule that denies access to anonymous user accounts and a second rule that denies access to user accounts in the role of Guest. That way, only users who are logged on and in another group can access the folder.</value>
+  </data>
+  <data name="BehindtheScenes01" type="System.String">
+    <value>Behind the Scenes</value>
+  </data>
+  <data name="BehindtheScenes02" type="System.String">
+    <value>The Web Site Administration Tool manages security information in the following two places:</value>
+  </data>
+  <data name="BehindtheScenes03" type="System.String">
+    <value>The Web.config file at the root of the Web site.</value>
+  </data>
+  <data name="BehindtheScenes04" type="System.String">
+    <value>The site provider database that is used to store user and group information.</value>
+  </data>
+  <data name="Web.configSettings01" type="System.String">
+    <value>Web.config Settings</value>
+  </data>
+  <data name="Web.configSettings02" type="System.String">
+    <value>The Web.config settings that are managed through the &lt;span class=UI&gt;Security&lt;/span&gt; tab are the &amp;lt;authorization&amp;gt;, &amp;lt;roleManager&amp;gt;, and &amp;lt;authentication&amp;gt; sections.</value>
+  </data>
+  <data name="Web.configSettings03" type="System.String">
+    <value>The following code example is the Web.config file that is created by the Web Site Administration Tool within a restricted subdirectory of the Web site. Access to the restricted subdirectory is allowed for administrators and denied for anonymous users.</value>
+  </data>
+  <data name="Database01" type="System.String">
+    <value>Database</value>
+  </data>
+  <data name="Database02" type="System.String">
+    <value>When you use the default data provider, the Web Site Administration Tool creates entries in the default ASP.NET database. By default, the Web Site Administration Tool creates a database in the App_Data folder of the Web site. However, using the &lt;span class=UI&gt;Provider&lt;/span&gt; tab, you can specify that application information for user accounts and roles be kept in another database (for example, retrieving role information from the Windows user database). For detailed information, see Web Site Administration Tool Provider Tab.</value>
+  </data>
+  <data name="MoreInformation01" type="System.String">
+    <value>More Information</value>
+  </data>
+  <data name="MoreInformation02" type="System.String">
+    <value>For more information about the settings that are managed in the &lt;span class=UI&gt;Security&lt;/span&gt; tab, in the .NET Framework documentation, see the following topics:</value>
+  </data>
+  <data name="MoreInformation03" type="System.String">
+    <value>Managing Users with ASP.NET Membership</value>
+  </data>
+  <data name="MoreInformation04" type="System.String">
+    <value>Limiting Access to ASP.NET Web Sites</value>
+  </data>
+  <data name="MoreInformation05" type="System.String">
+    <value>ASP.NET Configuration Overview</value>
+  </data>
+  <data name="SeeAlso01" type="System.String">
+    <value>See Also</value>
+  </data>
+  <data name="SeeAlso02" type="System.String">
+    <value>Web Site Administration Tool Overview</value>
+  </data>
+  <data name="SeeAlso03" type="System.String">
+    <value>Web Site Administration Tool Application Tab</value>
+  </data>
+  <data name="SeeAlso04" type="System.String">
+    <value>Web Site Administration Tool Provider Tab</value>
+  </data>
+  <data name="SeeAlso05" type="System.String">
+    <value>Web Site Administration Tool Internals</value>
+  </data>
+</root>

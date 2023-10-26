@@ -1,0 +1,59 @@
+<%@ Master masterPageFile="WebAdmin.master" className="WebAdminButtonRowMasterPage" %>
+<%@ MasterType virtualPath="WebAdmin.master" %>
+
+<script runat="server" language="cs">
+
+private string _directionality;
+
+public string Directionality {
+    get {
+        if (String.IsNullOrEmpty(_directionality)) {
+            _directionality = ((string) GetGlobalResourceObject("GlobalResources", "HtmlDirectionality")).ToLower();
+        }
+        return _directionality;
+    }
+}
+
+public void Page_Load() {
+    string htmlText = "<td><img src=\"" + Request.ApplicationPath + "/images/yellowCORNER.gif\" width=\"34\"";
+    htmlText = htmlText + " alt=\"" + (string)GetGlobalResourceObject("GlobalResources", "YellowCornerGif") + "\"";
+    htmlText = htmlText + " border=\"0\"/></td>";
+    if (Directionality == "rtl") {
+        yellowCornerElement.Text = "";
+        yellowCornerElementBIDI.Text = htmlText;
+    } else {
+        yellowCornerElement.Text = htmlText;
+        yellowCornerElementBIDI.Text = "";
+    }
+}
+
+public void SetNavigationBarSelectedIndex(int sel) {
+    Master.SetNavigationBarSelectedIndex(sel);
+}
+
+public void SetNavigationBarVisibility(bool visible) {
+    Master.SetNavigationBarVisibility(visible);
+}
+
+</script>
+
+<asp:content runat="server" contentplaceholderid="titleBar">
+    <asp:contentplaceholder runat="server" id="titleBar"/>
+</asp:content>
+<asp:content runat="server" contentplaceholderid="content">
+    <asp:contentplaceholder runat="server" id="content"/>
+</asp:content>
+
+<asp:content runat="server" contentplaceholderid="buttonRow">
+<table align="right" valign="bottom" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <asp:literal runat="server" id="yellowCornerElement"/>
+        <td class="buttonCell" align="left" valign="middle">
+            <asp:literal runat="server" id="arrowElement" />
+            &nbsp;&nbsp;
+            <asp:contentPlaceHolder runat="server" id="buttons"/>
+        </td>
+        <asp:literal runat="server" id="yellowCornerElementBIDI"/>
+    </tr>
+</table>
+</asp:content>

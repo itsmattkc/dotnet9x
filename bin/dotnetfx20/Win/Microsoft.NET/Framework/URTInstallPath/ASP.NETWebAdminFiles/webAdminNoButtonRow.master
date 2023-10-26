@@ -1,0 +1,23 @@
+<%@ Master masterPageFile="WebAdmin.master" className="WebAdminNoButtonRowMasterPage" %>
+<%@ MasterType virtualPath="WebAdmin.master" %>
+
+<script runat="server" language="cs">
+public void SetNavigationBarSelectedIndex(int sel) {
+    Master.SetNavigationBarSelectedIndex(sel);
+}
+
+public void SetNavigationBarVisibility(bool visible) {
+    Master.SetNavigationBarVisibility(visible);
+}
+</script>
+
+
+<asp:content runat="server" contentplaceholderid="titleBar">
+    <asp:contentPlaceHolder runat=server id="titleBar"/>
+</asp:content>
+<asp:content runat="server" contentplaceholderid="content">
+    <asp:contentPlaceHolder runat="server" id="content"/>
+</asp:content>
+
+<asp:content runat=server contentplaceholderid="buttonRow">
+</asp:content>

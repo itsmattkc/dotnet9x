@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="Instructions" type="System.String">
+    <value>Use this page to configure how Web site management data such as membership is stored. You can use a single provider for all the management data for your site or you can specify a different provider for each feature.</value>
+  </data>
+  <data name="ConfigureProviders" type="System.String">
+    <value>Configure Providers</value>
+  </data>
+  <data name="CurrentProvider" type="System.String">
+    <value>Your application is currently configured to use the provider: &lt;b&gt;{0}&lt;/b&gt;&lt;br&gt;&lt;br&gt;</value>
+  </data>                           
+  <data name="SelectDifferent" type="System.String">
+    <value>Select a different provider for each feature (advanced)</value>
+  </data>                           
+  <data name="SelectSame" type="System.String">
+    <value>Select a single provider for all site management data</value>
+  </data>                           
+</root>

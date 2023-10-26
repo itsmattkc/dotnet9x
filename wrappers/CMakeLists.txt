@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.13)
 
 project(corkel32 C)
 
+set(CMAKE_BUILD_TYPE Release)
+
 add_library(corkdebug OBJECT
   debug.c
 )

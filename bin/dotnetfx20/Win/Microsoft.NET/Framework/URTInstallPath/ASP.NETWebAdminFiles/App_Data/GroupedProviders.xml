@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Root>
+    <GroupedProviders>
+        <GroupedProvider name="AspNetSqlProvider">
+            <MembershipProvider name="AspNetSqlMembershipProvider" />
+            <RoleProvider name="AspNetSqlRoleProvider" />
+        </GroupedProvider>
+    </GroupedProviders>
+</Root>

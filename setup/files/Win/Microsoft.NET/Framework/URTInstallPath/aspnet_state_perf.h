@@ -1,5 +1,0 @@
-#define ASPNET_STATE_OBJECT                                0
-#define ASPNET_STATE_SERVICE_SESSIONS_ACTIVE               192
-#define ASPNET_STATE_SERVICE_SESSIONS_ABANDONED            194
-#define ASPNET_STATE_SERVICE_SESSIONS_TIMED_OUT            196
-#define ASPNET_STATE_SERVICE_SESSIONS_TOTAL                198
