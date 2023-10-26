@@ -47,6 +47,8 @@ jobs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TRAVIS_REPO_SLUG: itsmattkc/LEGOIslandRebuilder
+        TRAVIS_COMMIT: ${{ github.sha }}
       run: |
         /c/msys64/usr/bin/wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
         ./upload.sh setup/dotnet95.exe
