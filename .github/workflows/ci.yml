@@ -33,7 +33,7 @@ jobs:
     - name: Build installer
       shell: cmd
       run: |
-        setup/nsis/makensis.exe setup/dotnet95.nsi
+        setup\nsis\makensis.exe setup\dotnet95.nsi
 
     - name: Upload Artifact
       uses: actions/upload-artifact@master
