@@ -20,12 +20,6 @@ jobs:
         # Use minimum supported version
         cmake-version: '3.13.x'
 
-    - name: Setup NSIS
-      shell: cmd
-      run: |
-        C:\msys64\usr\bin\wget.exe -c https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51.zip/download
-        7z x nsis-2.51.zip
-
     - name: Build wrappers
       shell: cmd
       run: |
@@ -39,7 +33,7 @@ jobs:
     - name: Build installer
       shell: cmd
       run: |
-        nsis-2.51/makensis.exe setup/dotnet95.nsi
+        setup/nsis/makensis.exe setup/dotnet95.nsi
 
     - name: Upload Artifact
       uses: actions/upload-artifact@master
