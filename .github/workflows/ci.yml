@@ -23,7 +23,7 @@ jobs:
     - name: Setup NSIS
       shell: cmd
       run: |
-        wget -c https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51.zip/download
+        C:\msys64\usr\bin\wget.exe -c https://sourceforge.net/projects/nsis/files/NSIS%202/2.51/nsis-2.51.zip/download
         7z x nsis-2.51.zip
 
     - name: Build wrappers
