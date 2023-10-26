@@ -44,7 +44,9 @@ jobs:
 
     - name: Upload Continuous Release
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'itsmattkc/dotnet95' }}
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
         ./upload.sh setup/dotnet95.exe
