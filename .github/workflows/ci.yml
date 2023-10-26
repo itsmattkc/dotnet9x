@@ -48,5 +48,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        /c/msys64/usr/bin/wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        ./upload.sh setup/dotnet95.exe
+        curl -fLOSs --retry 2 --retry-delay 60 https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        bash upload.sh setup/dotnet95.exe
