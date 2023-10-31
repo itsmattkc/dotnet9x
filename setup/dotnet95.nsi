@@ -30,6 +30,17 @@ OutFile "dotnet95.exe"
 
 Section
 
+### Ensure we're on Windows 95 ###
+ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+StrCpy $R1 $R0 3
+StrCmp $R1 "4.0" +3 0
+MessageBox MB_OK "This installer only works on Windows 95. Please use the original installer for newer operating systems."
+Abort
+
+SectionEnd
+
+Section
+
 ### Check for MSIE501 ###
 
 # Require version 5.00.2919.6306, or 0x00050000 (327680) 0x0B6718A2 (191305890) converted to words
@@ -38,6 +49,10 @@ IntCmp $R0 327680 +4 +2 +4
 IntCmp $R1 191305890 +3 0 +3
 MessageBox MB_OK ".NET Framework 2.0 requires Internet Explorer 5.01"
 Abort
+
+SectionEnd
+
+Section
 
 SetOutPath $PROGRAMFILES
 File /r "..\bin\dotnetfx20\Program Files\*"
