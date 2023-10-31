@@ -43,7 +43,6 @@ VOID WINAPI CORKEL32_SetLastError(DWORD err)
 DWORD WINAPI CORKEL32_GetLastError()
 {
   DWORD e = GetLastError();
-  //Trace((e == 0) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR, "GetLastError: 0x%X", e);
   Trace(TRACE_PASSTHROUGH, "GetLastError: 0x%X", e);
   return e;
 }
@@ -60,32 +59,12 @@ LONG WINAPI CORKEL32_InterlockedExchange(LPLONG Target,  LONG Value)
   return InterlockedExchange(Target, Value);
 }
 
-const char *ignore_pointers[] = {
-  "EncodePointer",
-  "DecodePointer",
-  "FlsAlloc",
-  "FlsGetValue",
-  "FlsSetValue",
-  "FlsFree",
-  NULL
-};
 FARPROC WINAPI CORKEL32_GetProcAddress(HMODULE hModule, LPCSTR lpProcName)
 {
   FARPROC f = GetProcAddress(hModule, lpProcName);
   char buffer[256];
-  BOOL ignore = FALSE;
-
-  int i = 0;
-  do {
-    if (!strcmp(ignore_pointers[i], lpProcName)) {
-      ignore = TRUE;
-      break;
-    }
-    i++;
-  } while (ignore_pointers[i]);
-
   GetModuleFileNameA(hModule, buffer, 256);
-  Trace((ignore) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR, "GetProcAddress: %s %s = %p", buffer, lpProcName, f);
+  Trace((f) ? TRACE_PASSTHROUGH : TRACE_POTENTIAL_ERROR, "GetProcAddress: %s %s = %p", buffer, lpProcName, f);
   return f;
 }
 
@@ -393,14 +372,14 @@ HANDLE WINAPI CORKEL32_GetCurrentProcess()
 HMODULE WINAPI CORKEL32_LoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags)
 {
   HMODULE h = LoadLibraryExA(lpLibFileName, hFile, dwFlags);
-  Trace(/*(h != NULL) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR*/TRACE_FORCE_PRINT, "LoadLibraryExA: %s - result: %p", lpLibFileName, h);
+  Trace((h != NULL) ? TRACE_PASSTHROUGH : TRACE_POTENTIAL_ERROR, "LoadLibraryExA: %s - result: %p", lpLibFileName, h);
   return h;
 }
 
 HMODULE WINAPI CORKEL32_LoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags)
 {
   HMODULE h = LoadLibraryExW(lpLibFileName, hFile, dwFlags);
-  Trace(/*(h != NULL) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR*/TRACE_FORCE_PRINT, "LoadLibraryExW: %ls - result: %p", lpLibFileName, h);
+  Trace((h != NULL) ? TRACE_PASSTHROUGH : TRACE_POTENTIAL_ERROR, "LoadLibraryExW: %ls - result: %p", lpLibFileName, h);
   return h;
 }
 
@@ -728,7 +707,7 @@ HANDLE WINAPI CORKEL32_GetStdHandle(DWORD param_0)
 HMODULE WINAPI CORKEL32_LoadLibraryA(LPCSTR lpLibFileName)
 {
   HMODULE h = LoadLibraryA(lpLibFileName);
-  Trace(/*(h != NULL) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR*/TRACE_FORCE_PRINT, "LoadLibraryA: %s - result: %p", lpLibFileName, h);
+  Trace((h != NULL) ? TRACE_PASSTHROUGH : TRACE_POTENTIAL_ERROR, "LoadLibraryA: %s - result: %p", lpLibFileName, h);
   return h;
 }
 
@@ -947,7 +926,7 @@ BOOL WINAPI CORKEL32_SetLocalTime(const SYSTEMTIME* param_0)
 HMODULE WINAPI CORKEL32_LoadLibraryW(LPCWSTR lpLibFileName)
 {
   HMODULE h = LoadLibraryW(lpLibFileName);
-  Trace(/*(h != NULL) ? TRACE_PASSTHROUGH : TRACE_UNEXPECTED_ERROR*/TRACE_FORCE_PRINT, "LoadLibraryW: %ls - result: %p", lpLibFileName, h);
+  Trace((h != NULL) ? TRACE_PASSTHROUGH : TRACE_POTENTIAL_ERROR, "LoadLibraryW: %ls - result: %p", lpLibFileName, h);
   return h;
 }
 
@@ -1858,14 +1837,14 @@ BOOL WINAPI CORKEL32_GetFileAttributesExW(LPCWSTR name, GET_FILEEX_INFO_LEVELS l
 DWORD WINAPI CORKEL32_GetLongPathNameA(LPCSTR lpszShortPath, LPSTR lpszLongPath, DWORD cchBuffer)
 {
   strncpy(lpszLongPath, lpszShortPath, cchBuffer);
-  Trace(TRACE_UNIMPLEMENTED, "GetLongPathNameA - lpszShortPath: %s, lpszLongPath: %s, cchBuffer: 0x%X", lpszShortPath, lpszLongPath, cchBuffer);
+  Trace(TRACE_IMPLEMENTED, "GetLongPathNameA - lpszShortPath: %s, lpszLongPath: %s, cchBuffer: 0x%X", lpszShortPath, lpszLongPath, cchBuffer);
   return 0;
 }
 
 DWORD WINAPI CORKEL32_GetLongPathNameW(LPCWSTR lpszShortPath, LPWSTR lpszLongPath, DWORD cchBuffer)
 {
   wcsncpy(lpszLongPath, lpszShortPath, cchBuffer);
-  Trace(TRACE_UNIMPLEMENTED, "GetLongPathNameW - lpszShortPath: %ls, lpszLongPath: %ls, cchBuffer: 0x%X", lpszShortPath, lpszLongPath, cchBuffer);
+  Trace(TRACE_IMPLEMENTED, "GetLongPathNameW - lpszShortPath: %ls, lpszLongPath: %ls, cchBuffer: 0x%X", lpszShortPath, lpszLongPath, cchBuffer);
   return 0;
 }
 
@@ -1913,7 +1892,7 @@ BOOL WINAPI CORKEL32_SwitchToThread()
 
 BOOL WINAPI CORKEL32_IsProcessorFeaturePresent(DWORD ProcessorFeature)
 {
-  Trace(TRACE_UNIMPLEMENTED, "IsProcessorFeaturePresent: %X", ProcessorFeature);
+  Trace(TRACE_IMPLEMENTED, "IsProcessorFeaturePresent: %X", ProcessorFeature);
   return FALSE;
 }
 
