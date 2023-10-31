@@ -4,21 +4,23 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define DEBUG_MINIMUM_LEVEL TRACE_IMPLEMENTED
+#define DEBUG_MINIMUM_LEVEL TRACE_UNIMPLEMENTED
 
 #undef Trace
 void Trace(int level, const char *s, ...)
 {
   va_list args;
-  FILE *fptr;
+  //FILE *fptr;
   char buf[1024];
-  DWORD le = GetLastError();
+  DWORD le;
 
   if (level < DEBUG_MINIMUM_LEVEL) {
     return;
   }
 
-  va_start(args, s);
+  le = GetLastError();
+
+  /*va_start(args, s);
 
   _vsnprintf(buf, 1024, s, args);
 
@@ -26,7 +28,12 @@ void Trace(int level, const char *s, ...)
   fprintf(fptr, "%s\n", buf);
   fclose(fptr);
 
+  va_end(args);*/
+
+  va_start(args, s);
+  _vsnprintf(buf, 1024, s, args);
   va_end(args);
+  MessageBoxA(0, buf, 0, 0);
 
   SetLastError(le);
 }
