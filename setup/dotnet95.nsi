@@ -37,7 +37,8 @@ SetOutPath $WINDIR
 File /r "..\bin\dotnetfx20\Windows\*"
 File /r "..\bin\dotnetfx20\Win\*"
 
-Rename "${FrameworkPath}URTInstallPath" "${URTInstallPath}"
+SetOutPath "${URTInstallPath}"
+File /r "..\bin\dotnetfx20\URTInstallPath\*"
 
 # Write registry entries
 WriteRegDword HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDLLs" "$SYSDIR\msvcr80.dll" 3
