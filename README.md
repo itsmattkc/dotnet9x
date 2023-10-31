@@ -1,5 +1,9 @@
 # .NET Framework 2.0 for Windows 95
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/itsmattkc/dotnet95/master/img/screenshot.png" />
+</p>
+
 ## Introduction
 
 This is a **work-in-progress** project to backport .NET Framework 2.0 to Windows 95.
