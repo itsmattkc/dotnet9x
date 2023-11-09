@@ -5491,7 +5491,9 @@ File /r "..\patches\*"
 !insertmacro Patch "${URTInstallPath}\fusion.dll" "fusion.dll.bdf"
 !insertmacro Patch "${URTInstallPath}\mscorjit.dll" "mscorjit.dll.bdf"
 !insertmacro Patch "${URTInstallPath}\mscorwks.dll" "mscorwks.dll.bdf"
+!insertmacro Patch "${URTInstallPath}\mscorpe.dll" "mscorpe.dll.bdf"
 !insertmacro Patch "${URTInstallPath}\regtlibv12.exe" "regtlibv12.exe.bdf"
+!insertmacro Patch "${URTInstallPath}\cvtres.exe" "cvtres.exe.bdf"
 !insertmacro Patch "$SYSDIR\mscoree.dll" "mscoree.dll.bdf"
 !insertmacro Patch "$SYSDIR\msvcr80.dll" "msvcr80.dll.bdf"
 
@@ -5563,5 +5565,9 @@ ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualC.Dll
 ### Install patched MSIL DLLs ###
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
 File "..\msil\System.Windows.Forms.dll"
+SetOutPath $WINDIR\assembly\GAC_32\mscorlib\2.0.0.0__b77a5c561934e089
+File "..\msil\mscorlib.dll"
+SetOutPath $WINDIR\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a
+File "..\msil\System.configuration.dll"
 
 SectionEnd
