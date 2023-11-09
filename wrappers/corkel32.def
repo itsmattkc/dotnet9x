@@ -377,3 +377,5 @@ EXPORTS
   ExpandEnvironmentStringsW=CORKEL32_ExpandEnvironmentStringsW
   lstrcmpiA=CORKEL32_lstrcmpiA
   GetConsoleScreenBufferInfo=CORKEL32_GetConsoleScreenBufferInfo
+  GetOpenFileNameA=CORKEL32_GetOpenFileNameA
+  GetOpenFileNameW=CORKEL32_GetOpenFileNameW

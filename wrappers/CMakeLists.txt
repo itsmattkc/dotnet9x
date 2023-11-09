@@ -13,6 +13,7 @@ link_libraries(corkdebug)
 add_library(corkel32 SHARED
   kernel32.c
   advapi32.c
+  comdlg32.c
   corkel32.def
 )
 
