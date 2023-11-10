@@ -351,7 +351,18 @@ BOOL WINAPI CORKEL32_FreeEnvironmentStringsW(LPWSTR param_0)
 INT WINAPI CORKEL32_WideCharToMultiByte(UINT CodePage, DWORD dwFlags, LPCWSTR lpWideCharStr, INT cchWideChar, LPSTR lpMultiByteStr, INT cbMultiByte, LPCSTR lpDefaultChar, LPBOOL lpUsedDefaultChar)
 {
   INT r;
-  dwFlags = 0;
+
+  // Windows 95 doesn't support these flags and will throw an error if they're specified
+  const unsigned short WC_ERR_INVALID_CHARS = 0x80;
+  const unsigned short WC_NO_BEST_FIT_CHARS = 0x400;
+  dwFlags &= ~WC_NO_BEST_FIT_CHARS;
+  dwFlags &= ~WC_ERR_INVALID_CHARS;
+
+  // Windows 95 doesn't appear to support UTF-8 conversion, so we fallback to the default multibyte codepage
+  if (CodePage == CP_UTF8) {
+    CodePage = CP_ACP;
+  }
+
   r = WideCharToMultiByte(CodePage, dwFlags, lpWideCharStr, cchWideChar, lpMultiByteStr, cbMultiByte, lpDefaultChar, lpUsedDefaultChar);
   Trace(TRACE_PASSTHROUGH, "WideCharToMultiByte, r = %i, CodePage = %u, dwFlags = %u", r, CodePage, dwFlags);
   return r;
