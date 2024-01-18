@@ -6,11 +6,11 @@
 
 ## Introduction
 
-This is a **work-in-progress** project to backport .NET Framework 2.0 to Windows 95.
+This is a **mostly complete** project to backport .NET Framework 2.0 to Windows 95.
 
-Officially, .NET has never been available on Windows 95. The earliest versions (1.0/1.1) supported NT 4.0 and 98SE, but no earlier. This has meant Windows 95 has been deprived of any and all applications written in C#, VB.NET, etc. for its entire existence. This project aims to change that, backporting .NET and several applications written in it in the process.
+Officially, .NET has never been available on Windows 95. The earliest versions (1.0/1.1) supported NT 4.0 and 98SE, but no earlier, meaning no C#/VB.NET/etc. app has ever been compatible with Windows 95. This project changes that, providing enough connective tissue to allow .NET (and hopefully most applications written for it) to run.
 
-This project targets .NET Framework 2.0 since it's the latest version to support 9x and is still a supported build target in the latest Visual Studio 2022.
+This project targets .NET Framework 2.0 since it was the newest version to support 9x and is still a supported build target in the latest Visual Studio 2022. Since .NET 3.5 uses the same version of the CLR (2.0), it may be possible to extend this further and backport all of 3.5 to 9x too, however there are no current plans to do this.
 
 ## Installation
 
@@ -24,4 +24,4 @@ Once those are installed, simply download `dotnet95.exe` from the Releases tab a
 
 ## Known Issues
 
-This is a work-in-progress and it is known that .NET still makes some calls to missing system functions that need to be patched or reimplemented. If you run into an unexpected exception or error message, feel free to make a thread in the Issues tab.
+In my testing, this appears to largely work now, but .NET may still make some calls to missing system functions that need to be patched or reimplemented. If you run into an unexpected exception or error message, feel free to make a thread in the Issues tab.
