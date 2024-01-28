@@ -1918,6 +1918,9 @@ BOOL WINAPI CORKEL32_InitializeCriticalSectionAndSpinCount(LPCRITICAL_SECTION cr
   Trace(TRACE_IMPLEMENTED, "InitializeCriticalSectionAndSpinCount: %p, 0x%X", crit, count);
 
   InitializeCriticalSection(crit);
-  crit->Reserved = count & ~0x80000000;
+
+  // Windows 95 doesn't support spincounts so we ignore here
+  //crit->Reserved = count & ~0x80000000;
+
   return TRUE;
 }
