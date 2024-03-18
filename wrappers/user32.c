@@ -121,6 +121,12 @@ BOOL WINAPI CORUSR_InSendMessage()
 // Reimplementations
 //
 
+DWORD WINAPI CORUSR_MsgWaitForMultipleObjects(DWORD nCount, const HANDLE* pHandles, BOOL fWaitAll, DWORD dwMilliseconds, DWORD dwWakeMask)
+{
+  Trace(TRACE_IMPLEMENTED, "MsgWaitForMultipleObjects");
+  return WaitForMultipleObjects(nCount, pHandles, fWaitAll, dwMilliseconds);
+}
+
 DWORD WINAPI CORUSR_MsgWaitForMultipleObjectsEx(DWORD nCount, const HANDLE* pHandles, DWORD dwMilliseconds, DWORD dwWakeMask, DWORD dwFlags)
 {
   Trace(TRACE_IMPLEMENTED, "MsgWaitForMultipleObjectsEx");
