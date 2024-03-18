@@ -27,6 +27,7 @@ OutFile "dotnet9x.exe"
 !define SharedFolder "$COMMONFILES\Microsoft Shared"
 !define DWFolder "${SharedFolder}\DW"
 !define wbemFolder "$SYSDIR\WBEM"
+!define v35Path "${FrameworkPath}v3.5"
 
 #Section
 
@@ -63,6 +64,9 @@ File /nonfatal /r "..\bin\dotnetfx20\Win\*"
 
 SetOutPath "${URTInstallPath}"
 File /r "..\bin\dotnetfx20\URTInstallPath\*"
+
+SetOutPath "${v35Path}"
+File /r "..\bin\dotnetfx35\*"
 
 # Write registry entries
 WriteRegDword HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDLLs" "$SYSDIR\msvcr80.dll" 3
@@ -5562,6 +5566,11 @@ ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.Data.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualC.Dll"'
+
+# GAC v3.5
+ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.Design.dll"'
+ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.dll"'
+ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Windows.Presentation.dll"'
 
 ### Install patched MSIL DLLs ###
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
