@@ -5571,6 +5571,7 @@ ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualC.Dll
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.Design.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Windows.Presentation.dll"'
+ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Core.dll"'
 
 ### Install patched MSIL DLLs ###
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
