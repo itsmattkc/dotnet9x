@@ -1,4 +1,4 @@
-# .NET Framework 2.0 for Windows 95
+# .NET Framework 2.0 - 3.5 for Windows 9x
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/itsmattkc/dotnet95/master/img/screenshot.png" />
@@ -6,13 +6,14 @@
 
 ## Introduction
 
-This is a **mostly complete** project to backport .NET Framework 2.0 to Windows 95.
+This project backports .NET Framework 2.0 - 3.5 to Windows 9x.
 
-Officially, .NET has never been available on Windows 95. The earliest versions (1.0/1.1) supported NT 4.0 and 98SE, but no earlier, meaning no C#/VB.NET/etc. app has ever been compatible with Windows 95. This project changes that, providing enough connective tissue to allow .NET (and hopefully most applications written for it) to run.
+Officially, .NET Framework 3.5 never supported anything below XP, and .NET in general never supported 95. This project changes that, backporting CLR 2.0 to 95 and Framework 3.5 to 9x.
 
-This project targets .NET Framework 2.0 since it was the newest version to support 9x and is still a supported build target in the latest Visual Studio 2022. Since .NET 3.5 uses the same version of the CLR (2.0), it may be possible to extend this further and backport all of 3.5 to 9x too, however there are no current plans to do this.
 
 ## Installation
+
+### Windows 95
 
 .NET Framework 2.0 requires the following to be installed:
 
