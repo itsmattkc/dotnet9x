@@ -29,17 +29,6 @@ OutFile "dotnet9x.exe"
 !define wbemFolder "$SYSDIR\WBEM"
 !define v35Path "${FrameworkPath}v3.5"
 
-#Section
-
-### Ensure we're on Windows 95 ###
-#ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
-#StrCpy $R1 $R0 3
-#StrCmp $R1 "4.0" +3 0
-#MessageBox MB_OK "This installer only works on Windows 95. Please use the original installer for newer operating systems."
-#Abort
-
-#SectionEnd
-
 Section
 
 ### Check for MSIE501 ###
@@ -5481,12 +5470,17 @@ WriteRegStr HKCR "APPID\{58FC39EB-9DBD-4EA7-B7B4-9404CC6ACFAB}" "" "Watson subsc
 
 WriteRegBin HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\kernel" "ObUnsecureGlobalNames" 6E65746678637573746F6D70657266636F756E746572732E312E300053686172656450657266495043426C6F636B00436F725F507269766174655F495043426C6F636B00436F725F5075626C69635F495043426C6F636B5F0000
 
-### Install Patches ###
+### Install Runtime Patches (if on Windows 95) ###
+ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+StrCpy $R1 $R0 3
+StrCmp $R1 "4.0" 0 Skip95Patches
+
 !macro Patch FileName PatchFile
   ExecWait '"$WINDIR\Temp\net95patches\bspatch.exe" "${FileName}" "${FileName}" "$WINDIR\Temp\net95patches\${PatchFile}"'
 !macroend
 SetOutPath "$WINDIR\Temp\net95patches"
 File /r "..\patches\*"
+
 !insertmacro Patch "${URTInstallPath}\alink.dll" "alink.dll.bdf"
 !insertmacro Patch "${URTInstallPath}\csc.exe" "csc.exe.bdf"
 !insertmacro Patch "${URTInstallPath}\cscomp.dll" "cscomp.dll.bdf"
@@ -5501,6 +5495,8 @@ File /r "..\patches\*"
 !insertmacro Patch "${URTInstallPath}\ngen.exe" "ngen.exe.bdf"
 !insertmacro Patch "$SYSDIR\mscoree.dll" "mscoree.dll.bdf"
 !insertmacro Patch "$SYSDIR\msvcr80.dll" "msvcr80.dll.bdf"
+
+Skip95Patches:
 
 ### Install System API Wrappers ###
 SetOutPath $SYSDIR
@@ -5573,12 +5569,18 @@ ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Windows.Presentation.dll"'
 ExecWait '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Core.dll"'
 
-### Install patched MSIL DLLs ###
+### Install patched 2.0 MSIL DLLs (only on Windows 95) ###
+ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+StrCpy $R1 $R0 3
+StrCmp $R1 "4.0" 0 SkipNET20MSILPatches
+
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
 File "..\msil\System.Windows.Forms.dll"
 SetOutPath $WINDIR\assembly\GAC_32\mscorlib\2.0.0.0__b77a5c561934e089
 File "..\msil\mscorlib.dll"
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a
 File "..\msil\System.configuration.dll"
+
+SkipNET20MSILPatches:
 
 SectionEnd
