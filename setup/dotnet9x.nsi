@@ -1,7 +1,7 @@
 !include "MUI2.nsh"
 
-Name ".NET Framework for Windows 95"
-OutFile "dotnet95.exe"
+Name ".NET Framework 2.0 Backport"
+OutFile "dotnet9x.exe"
 !define MUI_ICON "setup.ico"
 
 !insertmacro MUI_PAGE_WELCOME
@@ -28,16 +28,16 @@ OutFile "dotnet95.exe"
 !define DWFolder "${SharedFolder}\DW"
 !define wbemFolder "$SYSDIR\WBEM"
 
-Section
+#Section
 
 ### Ensure we're on Windows 95 ###
-ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
-StrCpy $R1 $R0 3
-StrCmp $R1 "4.0" +3 0
-MessageBox MB_OK "This installer only works on Windows 95. Please use the original installer for newer operating systems."
-Abort
+#ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+#StrCpy $R1 $R0 3
+#StrCmp $R1 "4.0" +3 0
+#MessageBox MB_OK "This installer only works on Windows 95. Please use the original installer for newer operating systems."
+#Abort
 
-SectionEnd
+#SectionEnd
 
 Section
 
@@ -59,7 +59,7 @@ File /r "..\bin\dotnetfx20\Program Files\*"
 
 SetOutPath $WINDIR
 File /r "..\bin\dotnetfx20\Windows\*"
-File /r "..\bin\dotnetfx20\Win\*"
+File /nonfatal /r "..\bin\dotnetfx20\Win\*"
 
 SetOutPath "${URTInstallPath}"
 File /r "..\bin\dotnetfx20\URTInstallPath\*"
@@ -5494,6 +5494,7 @@ File /r "..\patches\*"
 !insertmacro Patch "${URTInstallPath}\mscorpe.dll" "mscorpe.dll.bdf"
 !insertmacro Patch "${URTInstallPath}\regtlibv12.exe" "regtlibv12.exe.bdf"
 !insertmacro Patch "${URTInstallPath}\cvtres.exe" "cvtres.exe.bdf"
+!insertmacro Patch "${URTInstallPath}\ngen.exe" "ngen.exe.bdf"
 !insertmacro Patch "$SYSDIR\mscoree.dll" "mscoree.dll.bdf"
 !insertmacro Patch "$SYSDIR\msvcr80.dll" "msvcr80.dll.bdf"
 

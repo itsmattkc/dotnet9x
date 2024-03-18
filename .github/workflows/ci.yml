@@ -33,20 +33,20 @@ jobs:
     - name: Build installer
       shell: cmd
       run: |
-        setup\nsis\makensis.exe setup\dotnet95.nsi
+        setup\nsis\makensis.exe setup\dotnet9x.nsi
 
     - name: Upload Artifact
       uses: actions/upload-artifact@master
       with:
         name: setup
         path: |
-          setup/dotnet95.exe
+          setup/dotnet9x.exe
 
     - name: Upload Continuous Release
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'itsmattkc/dotnet95' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'itsmattkc/dotnet9x' }}
       shell: bash
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         curl -fLOSs --retry 2 --retry-delay 60 https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        bash upload.sh setup/dotnet95.exe
+        bash upload.sh setup/dotnet9x.exe
