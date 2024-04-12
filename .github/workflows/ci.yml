@@ -1,6 +1,14 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
 
 jobs:
   build:
