@@ -1,24 +1,25 @@
 LIBRARY
 EXPORTS
-  GetUserObjectInformationW=CORUSR_GetUserObjectInformationW
-  PostMessageW=CORUSR_PostMessageW
-  PostMessageA=CORUSR_PostMessageA
-  DispatchMessageW=CORUSR_DispatchMessageW
-  MessageBoxA=CORUSR_MessageBoxA
-  MessageBoxW=CORUSR_MessageBoxW
-  GetClassNameA=CORUSR_GetClassNameA
-  GetClassNameW=CORUSR_GetClassNameW
-  LoadStringA=CORUSR_LoadStringA
-  LoadStringW=CORUSR_LoadStringW
-  GetDesktopWindow=CORUSR_GetDesktopWindow
-  wsprintfW=CORUSR_wsprintfW
-  GetProcessWindowStation=CORUSR_GetProcessWindowStation
-  DispatchMessageA=CORUSR_DispatchMessageA
-  PeekMessageW=CORUSR_PeekMessageW
-  PeekMessageA=CORUSR_PeekMessageA
-  EnumThreadWindows=CORUSR_EnumThreadWindows
   MsgWaitForMultipleObjects=CORUSR_MsgWaitForMultipleObjects
   MsgWaitForMultipleObjectsEx=CORUSR_MsgWaitForMultipleObjectsEx
-  TranslateMessage=CORUSR_TranslateMessage
-  CharNextExA=CORUSR_CharNextExA
-  InSendMessage=CORUSR_InSendMessage
+  wsprintfW=CORUSR_wsprintfW
+
+  GetUserObjectInformationW=USER32.GetUserObjectInformationW
+  PostMessageW=USER32.PostMessageW
+  PostMessageA=USER32.PostMessageA
+  DispatchMessageW=USER32.DispatchMessageW
+  MessageBoxA=USER32.MessageBoxA
+  MessageBoxW=USER32.MessageBoxW
+  GetClassNameA=USER32.GetClassNameA
+  GetClassNameW=USER32.GetClassNameW
+  LoadStringA=USER32.LoadStringA
+  LoadStringW=USER32.LoadStringW
+  GetDesktopWindow=USER32.GetDesktopWindow
+  GetProcessWindowStation=USER32.GetProcessWindowStation
+  DispatchMessageA=USER32.DispatchMessageA
+  PeekMessageW=USER32.PeekMessageW
+  PeekMessageA=USER32.PeekMessageA
+  EnumThreadWindows=USER32.EnumThreadWindows
+  TranslateMessage=USER32.TranslateMessage
+  CharNextExA=USER32.CharNextExA
+  InSendMessage=USER32.InSendMessage

@@ -3,7 +3,7 @@
 
 #include "debug.h"
 
-BOOL WINAPI CORKEL32_GetOpenFileNameA(LPOPENFILENAMEA lpOpenFileName)
+BOOL WINAPI CORDLG32_GetOpenFileNameA(LPOPENFILENAMEA lpOpenFileName)
 {
   Trace(TRACE_PASSTHROUGH, "GetOpenFileNameA");
 
@@ -13,7 +13,7 @@ BOOL WINAPI CORKEL32_GetOpenFileNameA(LPOPENFILENAMEA lpOpenFileName)
   return GetOpenFileNameA(lpOpenFileName);
 }
 
-BOOL WINAPI CORKEL32_GetOpenFileNameW(LPOPENFILENAMEW lpOpenFileName)
+BOOL WINAPI CORDLG32_GetOpenFileNameW(LPOPENFILENAMEW lpOpenFileName)
 {
   Trace(TRACE_PASSTHROUGH, "GetOpenFileNameW");
 
