@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <lm.h> // for NTSTATUS
 
 #include "debug.h"
 
