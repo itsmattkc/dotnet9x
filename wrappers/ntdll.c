@@ -1,16 +1,18 @@
-#define _WIN32_WINNT 0x0400
 #include <windows.h>
 
 #include "debug.h"
 
-ULONG WINAPI CORNT_RtlNtStatusToDosError(NTSTATUS)
+ULONG WINAPI CORNT_RtlNtStatusToDosError(NTSTATUS param_0)
 {
   Trace(TRACE_UNIMPLEMENTED, "RtlNtStatusToDosError");
   // TODO: Stub
   return 0;
 }
 
+#ifndef HAS_RTL_UNWIND
 extern NTAPI RtlUnwind(void* param_0, void* param_1, struct _EXCEPTION_RECORD* param_2, void* param_3);
+#endif
+
 VOID NTAPI CORNT_RtlUnwind(void *p0,void *p1,struct _EXCEPTION_RECORD *p2, void *p3)
 {
   Trace(TRACE_PASSTHROUGH, "RtlUnwind");

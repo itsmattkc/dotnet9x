@@ -1,9 +1,11 @@
-#define _WIN32_WINNT 0x0400
-
 #include <stdio.h>
 #include <windows.h>
 
+#include "cas.h"
 #include "debug.h"
+#include "detect486.h"
+
+static int has_cmpxchg = 0;
 
 DWORD WINAPI CORKEL32_GetLastError()
 {
@@ -154,10 +156,14 @@ BOOL WINAPI CORKEL32_DeviceIoControl(HANDLE hDevice, DWORD dwIoControlCode, LPVO
 }
 
 // Reimplemented
-LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG *dest,  LONG xchg,  LONG compare)
+LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG* dest, LONG xchg, LONG compare)
 {
-  LONG temp = *dest;
+  LONG temp;
+  if (has_cmpxchg) {
+    return InterlockedCompareExchange_486(dest, xchg, compare);
+  }
 
+  temp = *dest;
   Trace(TRACE_FORCE_DONT_PRINT, "InterlockedCompareExchange");
 
   if (compare == *dest) {
@@ -300,6 +306,15 @@ BOOL WINAPI CORKEL32_InitializeCriticalSectionAndSpinCount(LPCRITICAL_SECTION cr
 
   // Windows 95 doesn't support spincounts so we ignore here
   //crit->Reserved = count & ~0x80000000;
+
+  return TRUE;
+}
+
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+{
+  if (fdwReason == DLL_PROCESS_ATTACH) {
+    has_cmpxchg = is_cpu_486_or_newer();
+  }
 
   return TRUE;
 }
