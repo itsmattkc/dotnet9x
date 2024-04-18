@@ -57,6 +57,9 @@ File /r "..\bin\dotnetfx20\URTInstallPath\*"
 SetOutPath "${v35Path}"
 File /r "..\bin\dotnetfx35\*"
 
+SetOutPath "$SYSDIR"
+File /r "..\bin\dotnetfx20\System\*"
+
 # Write registry entries
 WriteRegDword HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDLLs" "$SYSDIR\msvcr80.dll" 3
 WriteRegDword HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\SharedDLLs" "$SYSDIR\msvcp80.dll" 3
@@ -5468,15 +5471,22 @@ WriteRegStr HKCR "CLSID\{58FC39EB-9DBD-4EA7-B7B4-9404CC6ACFAB}\LocalServer32" ""
 WriteRegStr HKCR "APPID\{58FC39EB-9DBD-4EA7-B7B4-9404CC6ACFAB}" "RunAs" "Interactive User"
 WriteRegStr HKCR "APPID\{58FC39EB-9DBD-4EA7-B7B4-9404CC6ACFAB}" "" "Watson subscriber for SENS Network Events"
 
-WriteRegBin HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\kernel" "ObUnsecureGlobalNames" 6E65746678637573746F6D70657266636F756E746572732E312E300053686172656450657266495043426C6F636B00436F725F507269766174655F495043426C6F636B00436F725F5075626C69635F495043426C6F636B5F0000
+!macro Check95 Is95 Not95
+  ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
+  StrCpy $R1 $R0 3
+  StrCmp $R1 "4.0" ${Is95} ${Not95}
+!macroend
 
-### Install Runtime Patches (if on Windows 95) ###
-ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
-StrCpy $R1 $R0 3
-StrCmp $R1 "4.0" 0 Skip95Patches
+!insertmacro Check95 0 Skip95Patches
+
+!macro Exec Path
+  nsExec::Exec `${Path}`
+  Pop $0
+!macroend
 
 !macro Patch FileName PatchFile
   nsExec::Exec '"$WINDIR\Temp\net95patches\bspatch.exe" "${FileName}" "${FileName}" "$WINDIR\Temp\net95patches\${PatchFile}"'
+  Pop $0
 !macroend
 SetOutPath "$WINDIR\Temp\net95patches"
 File /r "..\patches\*"
@@ -5503,76 +5513,74 @@ SetOutPath $SYSDIR
 File /r "..\wrappers\build\*.dll"
 
 ### regtlb ###
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.JScript.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.Vsa.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.Vsa.Vb.CodeDOMProcessor.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\mscoree.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\mscorlib.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.Drawing.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.EnterpriseServices.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.tlb"'
-nsExec::Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.Windows.Forms.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.JScript.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.Vsa.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\Microsoft.Vsa.Vb.CodeDOMProcessor.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\mscoree.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\mscorlib.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.Drawing.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.EnterpriseServices.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.tlb"'
+!insertmacro Exec '"${URTInstallPath}\regtlibv12.exe" "${URTInstallPath}\System.Windows.Forms.tlb"'
 
 ### Install Assemblies ###
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Vsa.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Vsa.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft_VsaVb.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Vsa.Vb.CodeDOMProcessor.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.EnterpriseServices.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Deployment.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\cscompmgd.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.JScript.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Engine.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Framework.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Tasks.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Utilities.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Accessibility.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Security.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\CustomMarshalers.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Configuration.Install.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.DirectoryServices.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.DirectoryServices.Protocols.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Drawing.Design.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.ServiceProcess.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.RegularExpressions.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.Services.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Windows.Forms.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.XML.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Design.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IEExecRemote.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IEHost.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IIEHost.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\ISymWrapper.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\mscorlib.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.OracleClient.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.SqlXml.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Management.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Runtime.Remoting.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Runtime.Serialization.Formatters.Soap.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\sysglobl.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.configuration.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Drawing.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Messaging.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Transactions.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.Mobile.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.Data.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualC.Dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Vsa.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Vsa.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft_VsaVb.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Vsa.Vb.CodeDOMProcessor.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.EnterpriseServices.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Deployment.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\cscompmgd.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.JScript.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Engine.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Framework.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Tasks.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.Build.Utilities.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Accessibility.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Security.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\CustomMarshalers.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Configuration.Install.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.DirectoryServices.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.DirectoryServices.Protocols.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Drawing.Design.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.ServiceProcess.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.RegularExpressions.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.Services.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Windows.Forms.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.XML.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Design.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IEExecRemote.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IEHost.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\IIEHost.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\ISymWrapper.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\mscorlib.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.OracleClient.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Data.SqlXml.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Management.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Runtime.Remoting.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Runtime.Serialization.Formatters.Soap.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\sysglobl.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.configuration.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Drawing.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Messaging.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Transactions.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\System.Web.Mobile.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualBasic.Compatibility.Data.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${URTInstallPath}\Microsoft.VisualC.Dll"'
 
 # GAC v3.5
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.Design.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Windows.Presentation.dll"'
-nsExec::Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Core.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.Design.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Web.Entity.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Windows.Presentation.dll"'
+!insertmacro Exec '"$WINDIR\Temp\gacutil.exe" /i "${v35Path}\System.Core.dll"'
 
 ### Install patched 2.0 MSIL DLLs (only on Windows 95) ###
-ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion" VersionNumber
-StrCpy $R1 $R0 3
-StrCmp $R1 "4.0" 0 SkipNET20MSILPatches
+!insertmacro Check95 0 SkipNET20MSILPatches
 
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
 File "..\msil\System.Windows.Forms.dll"
