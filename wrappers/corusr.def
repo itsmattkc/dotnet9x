@@ -3,6 +3,7 @@ EXPORTS
   MsgWaitForMultipleObjects=CORUSR_MsgWaitForMultipleObjects
   MsgWaitForMultipleObjectsEx=CORUSR_MsgWaitForMultipleObjectsEx
   wsprintfW=CORUSR_wsprintfW
+  NotifyWinEvent=CORUSR_NotifyWinEvent
 
   GetUserObjectInformationW=USER32.GetUserObjectInformationW
   PostMessageW=USER32.PostMessageW
