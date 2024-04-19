@@ -1,0 +1,19 @@
+--- System.configuration.asm.original	2024-04-19 13:20:09.458249700 -0700
++++ System.configuration.asm	2024-04-19 13:22:09.844507556 -0700
+@@ -8,6 +8,7 @@
+ .module extern kernel32.dll
+ .module extern crypt32.dll
+ .module extern advapi32.dll
++.module extern corkel32.dll
+ .assembly extern mscorlib
+ {
+   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+@@ -71914,7 +71915,7 @@
+ 
+   .field static assembly literal int32 GetFileExInfoStandard = int32(0x00000000)
+   .field static assembly literal int32 MOVEFILE_REPLACE_EXISTING = int32(0x00000001)
+-  .method assembly hidebysig static pinvokeimpl("kernel32.dll" autochar lasterr winapi bestfit:off) 
++  .method assembly hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi bestfit:off) 
+           bool  GetFileAttributesEx(string name,
+                                     int32 fileInfoLevel,
+                                     [out] valuetype Microsoft.Win32.UnsafeNativeMethods/WIN32_FILE_ATTRIBUTE_DATA& data) cil managed preservesig

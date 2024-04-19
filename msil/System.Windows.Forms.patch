@@ -1,0 +1,20 @@
+--- System.Windows.Forms.asm.original	2024-04-19 12:15:06.880649435 -0700
++++ System.Windows.Forms.asm	2024-04-19 12:16:01.487091612 -0700
+@@ -58528,7 +58528,7 @@
+     IL_000f:  ret
+   } // end of method UnsafeNativeMethods::CreateMenu
+ 
+-  .method public hidebysig static pinvokeimpl("comdlg32.dll" autochar lasterr winapi) 
++  .method public hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi) 
+           bool  GetOpenFileName([in][out] class System.Windows.Forms.NativeMethods/OPENFILENAME_I ofn) cil managed preservesig
+   {
+   }
+@@ -59879,7 +59879,7 @@
+                                            [in][out] object&  marshal( interface ) pAcc) cil managed preservesig
+   {
+   }
+-  .method public hidebysig static pinvokeimpl("user32.dll" nomangle autochar winapi) 
++  .method public hidebysig static pinvokeimpl("corusr.dll" nomangle autochar winapi) 
+           void  NotifyWinEvent(int32 winEvent,
+                                valuetype [mscorlib]System.Runtime.InteropServices.HandleRef hwnd,
+                                int32 objType,

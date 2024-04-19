@@ -1,0 +1,42 @@
+--- mscorlib.asm.original	2024-04-19 12:55:04.782157988 -0700
++++ mscorlib.asm	2024-04-19 12:57:54.287832486 -0700
+@@ -11,6 +11,7 @@
+ .module extern kernel32.dll
+ .module extern mscorwks.dll
+ .module extern oleaut32.dll
++.module extern corkel32.dll
+ .module extern advapi32.dll
+ .module extern ole32.dll
+ .module extern user32.dll
+@@ -367275,19 +367276,19 @@
+                                  native int mustBeZero) cil managed preservesig
+   {
+   }
+-  .method assembly hidebysig static pinvokeimpl("kernel32.dll" autochar lasterr winapi bestfit:off) 
++  .method assembly hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi bestfit:off) 
+           int32  GetLongPathName(string path,
+                                  class System.Text.StringBuilder longPathBuffer,
+                                  int32 bufferLength) cil managed preservesig
+   {
+   }
+-  .method assembly hidebysig static pinvokeimpl("kernel32.dll" autochar lasterr winapi bestfit:off) 
++  .method assembly hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi bestfit:off) 
+           int32  GetLongPathName([in] char[] path,
+                                  [out] char[] longPathBuffer,
+                                  int32 bufferLength) cil managed preservesig
+   {
+   }
+-  .method assembly hidebysig static pinvokeimpl("kernel32.dll" autochar lasterr winapi bestfit:off) 
++  .method assembly hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi bestfit:off) 
+           int32  GetLongPathName(char* path,
+                                  char* longPathBuffer,
+                                  int32 bufferLength) cil managed preservesig
+@@ -367675,7 +367676,7 @@
+                                      class System.Text.StringBuilder lpBuffer) cil managed preservesig
+   {
+   }
+-  .method assembly hidebysig static pinvokeimpl("kernel32.dll" autochar lasterr winapi bestfit:off) 
++  .method assembly hidebysig static pinvokeimpl("corkel32.dll" autochar lasterr winapi bestfit:off) 
+           bool  GetFileAttributesEx(string name,
+                                     int32 fileInfoLevel,
+                                     valuetype Microsoft.Win32.Win32Native/WIN32_FILE_ATTRIBUTE_DATA& lpFileInformation) cil managed preservesig
