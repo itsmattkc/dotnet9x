@@ -34,3 +34,18 @@ INT WINAPIV CORUSR_wsprintfW(LPWSTR param_0, LPCWSTR param_1, ...)
 
   return r;
 }
+
+void WINAPI CORUSR_NotifyWinEvent(DWORD event, HWND  hwnd, LONG  idObject, LONG  idChild)
+{
+  // Only Windows 95 lacks this function so if we have it, we passthrough.
+  // Otherwise, just do nothing.
+
+  typedef void (WINAPI *NotifyWinEvent_t)(DWORD, HWND, LONG, LONG);
+  NotifyWinEvent_t notifyWinEvent = (NotifyWinEvent_t) GetProcAddress(GetModuleHandleA("USER32.DLL"), "NotifyWinEvent");
+  
+  Trace(TRACE_IMPLEMENTED, "NotifyWinEvent");
+
+  if (notifyWinEvent) {
+    notifyWinEvent(event, hwnd, idObject, idChild);
+  }
+}

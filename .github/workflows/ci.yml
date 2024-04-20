@@ -35,6 +35,11 @@ jobs:
         cd build
         cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
         cmake --build .
+    
+    - name: Generate patched MSIL
+      shell: cmd
+      run: |
+        msil\patch.bat
 
     - name: Build installer
       shell: cmd

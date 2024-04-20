@@ -5583,11 +5583,11 @@ File /r "..\wrappers\build\*.dll"
 !insertmacro Check95 0 SkipNET20MSILPatches
 
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089
-File "..\msil\System.Windows.Forms.dll"
+File "..\msil\build\System.Windows.Forms.dll"
 SetOutPath $WINDIR\assembly\GAC_32\mscorlib\2.0.0.0__b77a5c561934e089
-File "..\msil\mscorlib.dll"
+File "..\msil\build\mscorlib.dll"
 SetOutPath $WINDIR\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a
-File "..\msil\System.configuration.dll"
+File "..\msil\build\System.configuration.dll"
 
 SkipNET20MSILPatches:
 
