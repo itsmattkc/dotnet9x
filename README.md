@@ -10,6 +10,7 @@ This project is a work-in-progress backport of .NET Framework 2.0 - 3.5 to Windo
 
 Officially, .NET Framework 3.5 never supported anything below XP, and .NET in general never supported 95. This project changes that, backporting CLR 2.0 to 95 and Framework 3.5 to 9x.
 
+[Video detailing the development journey](https://www.youtube.com/watch?v=CTUMNtKQLl8)
 
 ## Installation
 
