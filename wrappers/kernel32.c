@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
 
-#include "cas.h"
 #include "debug.h"
 #include "detect486.h"
 
@@ -155,22 +154,36 @@ BOOL WINAPI CORKEL32_DeviceIoControl(HANDLE hDevice, DWORD dwIoControlCode, LPVO
   return e;
 }
 
+static char const* InterlockedCompareExchange_name = "InterlockedCompareExchange";
+
 // Reimplemented
-LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG* dest, LONG xchg, LONG compare)
+__declspec(naked) LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG* dest, LONG exchange, LONG compare)
 {
-  LONG temp;
-  if (has_cmpxchg) {
-    return InterlockedCompareExchange_486(dest, xchg, compare);
+  __asm {
+    cmp has_cmpxchg, 0
+    jz ICE_is_386
+    mov edx, DWORD PTR [esp + 4] ; dest
+    mov ecx, DWORD PTR [esp + 8] ; exchange
+    mov eax, DWORD PTR [esp + 12] ; compare
+    lock cmpxchg DWORD PTR [edx], ecx
+    ret 12
+
+  ICE_is_386:
+    push InterlockedCompareExchange_name
+    push TRACE_FORCE_DONT_PRINT
+    call Trace
+    add esp, 8
+
+    mov edx, DWORD PTR [esp + 4] ; dest
+    mov eax, DWORD PTR [edx]
+    cmp eax, DWORD PTR [esp + 12] ; compare
+    jne ICE_exit
+    mov ecx, DWORD PTR [esp + 8] ; exchange
+    mov DWORD PTR [edx], ecx
+
+  ICE_exit:
+    ret 12
   }
-
-  temp = *dest;
-  Trace(TRACE_FORCE_DONT_PRINT, "InterlockedCompareExchange");
-
-  if (compare == *dest) {
-    *dest = xchg;
-  }
-
-  return temp;
 }
 
 HANDLE WINAPI CORKEL32_CreateToolhelp32Snapshot(DWORD param_0, DWORD param_1)

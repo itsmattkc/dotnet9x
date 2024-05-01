@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(corkel32 C ASM_MASM)
+project(corkel32 C)
 
 add_compile_definitions(_WIN32_WINNT=0x0400)
 
@@ -12,12 +12,7 @@ target_compile_definitions(corkdebug PRIVATE _CRT_SECURE_NO_WARNINGS=1)
 
 add_library(
   detect486 OBJECT
-  detect486.asm
-)
-
-add_library(
-  cas OBJECT
-  cas.asm
+  detect486.c
 )
 
 include(CheckSymbolExists)
@@ -31,7 +26,7 @@ add_library(
   comdlg32.c
   corkel32.def
 )
-target_link_libraries(corkel32 PRIVATE corkdebug detect486 cas)
+target_link_libraries(corkel32 PRIVATE corkdebug detect486)
 target_compile_definitions(corkel32 PRIVATE _CRT_SECURE_NO_WARNINGS=1)
 
 # NTDLL => CORNT
