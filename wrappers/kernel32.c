@@ -1,9 +1,10 @@
-#define _WIN32_WINNT 0x0400
-
 #include <stdio.h>
 #include <windows.h>
 
 #include "debug.h"
+#include "detect486.h"
+
+static int has_cmpxchg = 0;
 
 DWORD WINAPI CORKEL32_GetLastError()
 {
@@ -153,18 +154,36 @@ BOOL WINAPI CORKEL32_DeviceIoControl(HANDLE hDevice, DWORD dwIoControlCode, LPVO
   return e;
 }
 
+static char const* InterlockedCompareExchange_name = "InterlockedCompareExchange";
+
 // Reimplemented
-LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG *dest,  LONG xchg,  LONG compare)
+__declspec(naked) LONG WINAPI CORKEL32_InterlockedCompareExchange(LONG* dest, LONG exchange, LONG compare)
 {
-  LONG temp = *dest;
+  __asm {
+    cmp has_cmpxchg, 0
+    jz ICE_is_386
+    mov edx, DWORD PTR [esp + 4] ; dest
+    mov ecx, DWORD PTR [esp + 8] ; exchange
+    mov eax, DWORD PTR [esp + 12] ; compare
+    lock cmpxchg DWORD PTR [edx], ecx
+    ret 12
 
-  Trace(TRACE_FORCE_DONT_PRINT, "InterlockedCompareExchange");
+  ICE_is_386:
+    push InterlockedCompareExchange_name
+    push TRACE_FORCE_DONT_PRINT
+    call Trace
+    add esp, 8
 
-  if (compare == *dest) {
-    *dest = xchg;
+    mov edx, DWORD PTR [esp + 4] ; dest
+    mov eax, DWORD PTR [edx]
+    cmp eax, DWORD PTR [esp + 12] ; compare
+    jne ICE_exit
+    mov ecx, DWORD PTR [esp + 8] ; exchange
+    mov DWORD PTR [edx], ecx
+
+  ICE_exit:
+    ret 12
   }
-
-  return temp;
 }
 
 HANDLE WINAPI CORKEL32_CreateToolhelp32Snapshot(DWORD param_0, DWORD param_1)
@@ -300,6 +319,15 @@ BOOL WINAPI CORKEL32_InitializeCriticalSectionAndSpinCount(LPCRITICAL_SECTION cr
 
   // Windows 95 doesn't support spincounts so we ignore here
   //crit->Reserved = count & ~0x80000000;
+
+  return TRUE;
+}
+
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+{
+  if (fdwReason == DLL_PROCESS_ATTACH) {
+    has_cmpxchg = is_cpu_486_or_newer();
+  }
 
   return TRUE;
 }
