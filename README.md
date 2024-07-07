@@ -23,7 +23,7 @@ Officially, .NET Framework 3.5 never supported anything below XP, and .NET in ge
 - **Optional:**
   - To allow sockets, install the Microsoft [Windows Socket 2 Update](https://web.archive.org/web/20040320073520/http://download.microsoft.com/download/0/e/0/0e05231b-6bd1-4def-a216-c656fbd22b4e/W95ws2setup.exe).
 
-Once those are installed, simply download `dotnet9x.exe` from the Releases tab and install! After that, applications written for .NET Framework 2.0 - 3.5 should run.
+Once those are installed, simply download `dotnet9x.exe` from the [Releases](https://github.com/itsmattkc/dotnet9x/releases) tab and install! After that, applications written for .NET Framework 2.0 - 3.5 should run.
 
 ## Known Issues
 
